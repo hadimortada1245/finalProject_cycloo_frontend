@@ -1,0 +1,52 @@
+.mainNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+    border-bottom: 1px solid #234257;
+    background-color: #F5F5F5;
+}
+.cycloo{
+    font-size: 40px;
+}
+.cycloo a{
+     text-decoration: none;
+     font-family: 'Medium Italic'; 
+}
+.mainNav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mainNav ul li {
+    list-style: none;
+    margin: 0px 20px 0px 20px;
+    padding: 1px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.navItem{
+    text-decoration: none;
+    transition: border-bottom 1.3s ease-in-out;
+}
+.navItem:hover{
+    border-bottom: 2.5px solid #234257;
+    
+}
+.mainNav ul li a{
+    text-decoration: none;
+    
+}
+.mainNav-ul-li-button{
+    background-color: #234257;
+    color: #FFFFFF;
+    border-radius:6px;
+    font-size: 18px;
+    height: 30px;
+    width: 120px;
+}
+.dashboardIcon ,.cartIcon{
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}

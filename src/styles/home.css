@@ -1,0 +1,124 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    color: #234257;
+}
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');  
+button{
+    cursor: pointer;
+}
+.header {
+    background-image: url(C:\Users\pc\OneDrive\Desktop\cycloo\frontend\cycloo\src\images\heroSection.jpg);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom:2% ;
+}
+.p-hero{
+    font-size: 35px;
+    color:#F5F5F5;
+}
+.header-content{
+    display:flex ;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 45%;
+    position: absolute;
+    background-color: inherit;
+    top:53%;
+    right: 5%;
+}
+.hero-join{
+    background-color: #F5F5F5;
+    font-size: 25px;
+    width: 140px;
+    height: 35px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-about{
+    width: 85%;
+    background-color: #89B2AE;
+    visibility: 50%;
+    margin: 0% 1% 0% 1%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2%;
+    height: 400px;
+  
+}
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-section h2 {
+    font-family:'Permanent Marker';
+    text-align: center;
+    margin-bottom: 2%;
+    font-size: 40px;
+}
+.home-about-img{
+    width: 50%;
+    height: 100%;
+}
+
+.home-about-text{
+    width: 50%;
+    display: flex;
+    flex-direction:column;
+    row-gap: 15px;
+    padding: 1%;
+}
+.home-about-text-p{
+    font-family:'Permanent Marker';
+font-size: 35px;
+font-style: normal;
+font-weight: 200;
+line-height: 63px;
+width: 80%; 
+}
+.how-about-second{
+    width: 90%;
+font-size: 25px;
+}
+.home-section-icons{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4%;
+    flex-wrap: wrap;
+}
+.home-section-icons-d{
+    background-color: #89B2AE;
+    visibility: 50%;
+    width: 250px;
+    height: 250px;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 7%;
+}
+.home-section-icons-d img{
+    width: 100px;
+    height: 100px;
+}
+.subtitle{
+    font-family:'Permanent Marker';
+    font-size: 25px;
+}
+
