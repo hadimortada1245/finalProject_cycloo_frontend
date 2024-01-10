@@ -7,7 +7,12 @@
     background-color: #F5F5F5;
 }
 .cycloo{
-    font-size: 40px;
+    color: #234257;
+font-family: Inter;
+font-size: 40px;
+font-style: italic;
+font-weight: 500;
+line-height: normal;
 }
 .cycloo a{
      text-decoration: none;
@@ -42,7 +47,7 @@
     color: #FFFFFF;
     border-radius:6px;
     font-size: 18px;
-    height: 30px;
+   height: 35px;
     width: 120px;
 }
 .dashboardIcon ,.cartIcon{
