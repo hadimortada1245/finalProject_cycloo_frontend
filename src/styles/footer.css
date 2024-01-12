@@ -1,4 +1,5 @@
 
+
 .footer-container{
     background-color: #234257;
     display: flex;
@@ -9,6 +10,7 @@
     padding-left: 4%;
     padding-right: 4%;
     width: 100%;
+  
 }
 .footer-container-d1{
     display: flex;
@@ -27,7 +29,7 @@ margin-bottom: 7px;
 
 }
 .footer-p{
-    color: #FFF;
+color: #FFF;
 font-family: Inter;
 font-size: 19.5px;
 font-style: normal;
@@ -91,7 +93,4 @@ width: fit-content;
         margin: 1%;
         width: 100%;
     }
-}
-@media screen and (min-width:767px) and (max-width:1023px) {
-
 }
