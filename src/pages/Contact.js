@@ -1,17 +1,44 @@
 import MainNav from '../components/MainNav';
 import Footer from '../components/Footer';
 import '../styles/contact.css';
-
+import { useState ,useRef} from "react";
+import emailjs from '@emailjs/browser';
 function Contact(){
+    const form = useRef();
+    const [error,setError]=useState(null);
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setError(null);
+        const formData = new FormData(form.current);
+    const userName = formData.get('user_name');
+    const userEmail = formData.get('user_email');
+    const message = formData.get('message');
+    if (!userName || !userEmail || !message) {
+        setError('Please fill in all fields');
+        return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(userEmail)) {
+        setError('Please enter a valid email address');
+        return;
+    }
+        emailjs.sendForm('service_l9whsg7', 'template_ac975a9', form.current, 'IhNna7eaQ3PnOGCYp')
+          .then((result) => {
+              form.current.reset();
+          }, (error) => {
+              console.log(error.text);
+          });
+      }
     return(
         <>
             <MainNav/>
             <div className='contact-container'>
             <div className='contact-form'>
                 <p className='contact-title'>get in touch</p>
-                <form>
+                {error&&<span className='error-span'>{error}</span>}
+                <form ref={form} onSubmit={sendEmail}>
                 <div className='input-control'>
-                    <input type='text' required/>
+                    <input type='text' name="user_name" required/>
                     <label>
                         <span style={{ transitionDelay: "0ms" }}>U</span>
                         <span style={{ transitionDelay: "50ms" }}>s</span>
@@ -24,7 +51,7 @@ function Contact(){
                     </label>
                 </div>
                 <div className='input-control'>
-                    <input type='text' required/>
+                    <input type='text' name="user_email" required/>
                     <label>
                         <span style={{ transitionDelay: "0ms" }}>E</span>
                         <span style={{ transitionDelay: "50ms" }}>m</span>
@@ -35,7 +62,7 @@ function Contact(){
                     </label>
                 </div>
                 <div className='input-control'>
-                    <input type='text' required/>
+                    <input type='text' name="message" required/>
                     <label>
                         <span style={{ transitionDelay: "0ms" }}>M</span>
                         <span style={{ transitionDelay: "50ms" }}>e</span>

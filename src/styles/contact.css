@@ -40,6 +40,9 @@ margin-bottom: 10px;
     width: 200px;
     margin-left: 7%;
 }
+.error-span{
+    margin-left: 7%;
+}
 .input-control input{
     background-color: inherit;
     border: 0;
