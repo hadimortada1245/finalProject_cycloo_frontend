@@ -101,7 +101,7 @@ function Home(){
                         <p className='rideData-title'>Date</p>
                         <p className='rideData-p'>13/1/2024</p>
                     </div>
-                    <div className='rideData-g'>
+                    <div className='rideData-g rideData-g3'>
                         <p className='rideData-title'>Time</p>
                         <p className='rideData-p'>7:00 am</p>
                     </div>

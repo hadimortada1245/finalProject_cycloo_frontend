@@ -18,6 +18,7 @@ button{
     display: flex;
     flex-direction: column;
     margin-bottom:2% ;
+    position: relative;
 }
 .p-hero{
     font-size: 35px;
@@ -27,11 +28,11 @@ button{
     display:flex ;
     flex-direction: column;
     row-gap: 10px;
-    width: 45%;
+    width: 37%;
     position: absolute;
     background-color: inherit;
-    top:53%;
-    right: 5%;
+    top: 38.5%;
+    right: 13%;
 }
 .hero-join{
     background-color: #F5F5F5;
@@ -46,7 +47,6 @@ button{
 .home-about{
     width: 75%;
     background-color: rgba(137, 178, 174, 0.50);
-    visibility: 50%;
     margin: 0% 1% 0% 1%;
     display: flex;
     flex-direction: row;
@@ -64,7 +64,7 @@ button{
     font-family:'Permanent Marker';
     text-align: center;
     margin-bottom: 2%;
-    font-size: 40px;
+    font-size: 37px;
 }
 .home-about-img{
     width: 50%;
@@ -87,7 +87,7 @@ button{
 font-size: 35px;
 font-style: normal;
 font-weight: 200;
-line-height: 63px;
+line-height: 40px;
 width: 80%; 
 }
 .how-about-second{
@@ -201,7 +201,7 @@ height: 70%;
 .ride-f-t{
     display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 95%;
 }
 .ride-title{
 font-family: Permanent Marker;
@@ -211,7 +211,7 @@ font-weight: 400;
 line-height: normal;
 }
 .ride-p{
-    font-size: 21px;
+    font-size: 23px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -222,26 +222,27 @@ line-height: normal;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 }
 .mapImg{
     width: 185px;
     height: 155px;
     z-index: 2;
     position: absolute;
-     top: 323.5%;
-    right: 35%; 
+     top: 50%;
+    right: 54%; 
 }
 .imgRide{
     width: 352px;
 height: 244px;
 z-index: 1;
 position: absolute;
-right: 15%;
+right: 3%;
+top: 5.7%;
 }
 .ride-f-imgs{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative; 
+    width: 100%;
 }
 .rideData{
     display: flex;
@@ -287,5 +288,288 @@ font-weight: 400;
 line-height: normal;
 background-color: #234257;
 border-radius: 6px;
-margin-left: 185%;
+margin-right: 75px;
+}
+@media screen and (max-width:766px){
+    .header{
+        margin-bottom: 10%
+    }
+    .about-section {
+        margin-bottom: 10%
+    }
+    .p-hero {
+        font-size: 30px;
+    }
+    .header-content {
+        top: 26.5%;
+        right: 13%;
+    }
+    .home-about {
+        flex-direction: column-reverse;
+        height: fit-content;
+    }
+    .home-about-text {
+        padding: 14px;
+        width: 100%;
+    }
+    .how-about-second {
+        width: 100%;
+        font-size: 20px;
+    }
+    .home-about-img {
+        width: 100%;
+        height: 100%;
+    }
+    .home-about-img img {
+        margin-bottom: -4px;    
+    }
+    .latest-h2 {
+        font-size: 37px;
+    }
+    .home-about-text-p {
+        font-family: 'Permanent Marker';
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 25px;
+        width: 100%;
+        padding: 2px
+    }
+    .home-section-icons{
+        margin: 5% 0%;
+    }
+    .home-section-icons-d {
+        width: 200px;
+        height: 200px;
+    }
+    .home-products {
+        margin: 5% 0%;
+    }
+    .rides-h {
+        margin: 5% 0% 7% 0%;
+    }
+   .ride{
+    height: fit-content;
+   }
+    .ride-f{
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    }
+    .ride-f-t{
+        width: 100%;
+        padding: 10px;
+    }
+    .ride-title{
+    font-size: 26px;  
+    }
+    .ride-p{
+        font-size: 20px;
+    }
+    .ride-s{
+        height: fit-content;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mapImg {
+        z-index: auto;
+        position: static;
+        top: auto;
+        right: auto;
+        width:94%;
+    height: auto;
+    }
+    .imgRide{
+     display: none;
+    }
+    .ride-f-imgs{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0px;
+    }
+    .rideData {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 10px; 
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0px;
+    }
+    .rideData-title{
+    font-size: 20px;
+    }
+    .item-t-p {
+        margin-bottom: 2%;
+    }
+    .rideData-p{
+    font-size: 13px;
+    }
+    .rideData-g{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-right: 2px solid #234257;
+        padding: 0px 10px;  
+    }
+    .rideData-g3{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px 10px;
+        width: fit-content;
+        padding: 3px;
+        border-right: none;
+    }
+    .rideData-g1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px 10px;
+        
+        width: fit-content;
+        padding: 3px;
+    }
+    .view-all-rides{
+    margin-left: 0%;
+    margin: 10px 0px;
+    }
+    .single-item{
+        width: 95%;
+        height: 100%;
+        margin-bottom: 5%;
+    }
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .home-about{
+        height: 355px;
+    }
+    .home-about-text{
+        row-gap: 12px;
+    }
+    .header-content{
+        width: 44%;
+        right: 6%;
+    }
+    .single-item{
+        width: 47%;
+        height: 100%;
+        margin-bottom: 3%;
+    }
+    
+.item-t-p {
+    margin-bottom: 8px;
+}
+
+    .home-section-icons-d {
+        width: 15%;
+        height: 150px;
+    }
+    .home-section-icons-d img {
+        width: 70px;
+        height: 70px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+    .home-about-text-p {
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 25px;
+        width: 90%;
+        padding-left: 5px;
+    }
+    .how-about-second {
+        width: 95%;
+        font-size: 20px;
+        padding-left: 5px;
+    }
+    .ride-title{
+    font-family: Permanent Marker;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
+    .ride-p{
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .ride-s{
+        height: 30%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 3%;
+    }
+    .mapImg{
+        width: 115px;
+        height: 115px;
+        z-index: 2;
+        position: absolute; 
+        top: 60%;
+    }
+    .imgRide{
+    width: 225px;
+    height: 200px;
+    }
+    .ride-f-imgs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .rideData{
+        display: flex;
+        flex-direction: row;
+    }
+    .rideData-title{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
+    .rideData-p{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
+    .rideData-g{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        border-right: 2px solid #234257;
+        padding: 0px 4px;  
+    }
+    .rideData-g1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px 10px;
+        
+        width: fit-content;
+        padding: 3px;
+    }
+    .view-all-rides{
+        width: 100px;
+    font-size: 22px;
+    margin-left: 0%;
+    margin-right: 20px;
+    
+    }
+    .ride{
+        height: 355px;
+    }
 }

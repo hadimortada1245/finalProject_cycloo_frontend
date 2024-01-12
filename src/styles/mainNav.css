@@ -5,6 +5,10 @@
     padding: 1%;
     border-bottom: 1px solid #234257;
     background-color: #F5F5F5;
+    position: relative;
+}
+.burger-section{
+    display: none;
 }
 .cycloo{
     color: #234257;
@@ -13,6 +17,7 @@ font-size: 40px;
 font-style: italic;
 font-weight: 500;
 line-height: normal;
+ margin-left:2%
 }
 .cycloo a{
      text-decoration: none;
@@ -53,5 +58,91 @@ line-height: normal;
 .dashboardIcon ,.cartIcon{
     width: 45px;
     height: 45px;
+    cursor: pointer;
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+.mainNav ul li {
+    margin: 0px 10px 0px 10px;
+}
+}
+.menuIcon{
+    display: none;
+}
+.menuIcon img{
+    width: 40px;
+    height: 45px;
+}
+@media screen and (max-width:766px){
+    .menuIcon{
+        display: block !important;
+    }
+    .mainNav ul li {
+        display: none;
+    }
+    .burger-section{
+        position: absolute;
+        top:0;
+        right:0;
+        width: 157px;
+    height: 277px;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    row-gap: 10px;
+    }
+    .burger-section p{
+        color: #234257;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .burger-icons{
+        display: flex;
+        flex-direction: row;
+    }
+    .burger-icons img{
+        width: 40px;
+        height: 40px;
+    }
+    .burgerButton{
+        width: 151px;
+        height: 43px;
+        background-color:#234257;
+        color: #FFF;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        border-radius:6px;
+    }
+    .div-x{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: end;
+        margin:5px 5px 0px 0px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+}
+.div-x:hover {
+    background-color: rgba(137, 178, 174, 0.50);  
+}
+    .div-x img{
+        width: 25px;
+        height: 25px;
+    }
+}
+.hideMenu{
+    display: none;
+}
+.burger-section a {
+    text-decoration: none;
     cursor: pointer;
 }
