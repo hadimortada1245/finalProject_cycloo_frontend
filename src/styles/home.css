@@ -168,6 +168,9 @@ font-size: 25px;
 .item-p{
     margin-left: 2%;
 }
+.home-img-item{
+    height: 254.13px;
+}
 .home-img-item:hover{
  transform: scale(1.01);
  cursor: pointer;

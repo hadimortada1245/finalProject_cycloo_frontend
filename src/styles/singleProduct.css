@@ -1,0 +1,140 @@
+.single-product-c{
+    min-height: 99vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.goBackIcon{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 12%;
+    left: 10%;
+}
+.goBackDiv{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 12%;
+    left: 3%;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.5s ease;
+}
+.goBackDiv:hover{
+    background-color:rgba(137, 178, 174, 0.50);;
+}
+.single-container{
+    display: flex;
+    flex-direction: row;
+    align-self:center ;
+    column-gap: 5%;
+    width: 80%;
+    margin: 7% 0%;
+}
+.product-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: flex-start;
+    width: 45%;
+}
+.product-type{
+    color: #234257;
+font-family: Montserrat;
+font-size: 35px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.product-name{
+font-size: 45px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.product-description{
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; 
+border-bottom: 2px solid #89B2AE;
+padding-bottom: 1.5%; 
+margin-bottom: 1.5%;
+}
+.product-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.single-price{
+font-size: 35px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.single-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+height: 50px;
+background-color: #234257;
+border-radius: 6px;
+color: #FFF;
+font-size: 31px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+outline: 0;
+}
+.single-product-img{
+    width: 60%;
+    height: 400px;
+    transition: transform 0.3s ease;
+}
+.single-product-img:hover{
+    transform: scale(1.01);
+}
+@media screen and (max-width:766px) {
+    .single-container{
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 10%;
+    }
+    .product-info{
+        width: 90%;
+    }
+    .goBackDiv{
+        top:5%;
+    }
+    .single-product-img {
+        width: 95%;
+        height: 400px;
+    }
+    .single-button{
+        width: 180px;
+    height: 45px;
+    font-size: 25px;
+    }
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .single-container{
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-bottom: 10%;
+    }
+    .product-info{
+        width: 90%;
+    }
+    .goBackDiv{
+        top:8%;
+    }
+    .single-product-img {
+        width: 95%;
+        height: 450px;
+    }
+        
+}

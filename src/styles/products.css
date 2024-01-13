@@ -1,0 +1,112 @@
+.porducts-p-c{
+    min-height: 99vh;
+}
+.products-c-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.filter-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    column-gap:2%;
+    margin: 3% 0%;
+}
+.filterBy{
+    width: 185px;
+height: 35px; 
+border-radius: 6px;
+border: 1px solid #89B2AE;
+background: #FFF;
+outline: 0;
+font-size: 20px;
+font-weight: 500;
+color: #234257;
+}
+.filterBy-option{
+    border-radius: 6px;
+}
+.filterBy-option:hover{
+background: rgba(137, 178, 174, 0.70);
+}
+
+.search-input{
+    height: 35px;
+    background: #FFF;
+    outline: 0;
+    border: 1px solid #89B2AE; 
+    font-size: 20px;
+    border-radius: 6px;
+    color: #234257;
+    width: 100%;
+    padding-left:10% ;
+}
+.search-div{
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.searchIcon{
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    top: 6.5px;
+    left: 3px;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
+}
+.searchIcon:hover {
+    transform: scale(1.15); 
+}
+.products-container-p{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+    margin-bottom:10%;
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+.products-container-p{
+    width: 85%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.filterBy{
+    width: 130px;
+}
+.filter-container{
+    width: 70%;
+    margin:5% 0%;
+}
+}
+@media screen and (max-width:766px){
+    .products-container-p{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10% 0%;
+        width: 85%;
+    }
+    .filter-container{
+        margin-top: 10%;
+        width: 85%;
+        margin-bottom: 0% !important;
+    }
+    .filterBy {
+     width: 85px;
+    }
+    .single{
+        margin-bottom: 0% !important;
+    }
+    .search-input{
+        padding-left: 18%;
+    }
+}

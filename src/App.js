@@ -4,6 +4,7 @@ import Contact from "./pages/Contact";
 import Products from "./pages/Products";
 import Oops from "./pages/Oops";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import SingleProduct from "./pages/SingleProduct";
 function App() {
 
     return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/about" element={ <About/>} />
             <Route path="/contact" element={ <Contact/>} />
             <Route path="/products" element={ <Products/>} />
+            <Route path="/singleProduct" element={ <SingleProduct/>} />
             <Route path="/oops" element={ <Oops/>} />
           </Routes>
       </Router>
