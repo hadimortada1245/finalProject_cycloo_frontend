@@ -1,0 +1,73 @@
+.oops-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 99vh;
+}
+.oops-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 12px;
+}
+.oops-word{
+font-size: 80px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.oops-img{
+    width: 200px;
+height: 200px;
+}
+.span-404{
+  padding-right: 12px;
+  border-right: 2px solid #234257;
+  margin-right: 3px;
+}
+.p-404{
+ font-size: 40px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+}
+.oops-btn{
+    border-radius: 6px;
+background: #234257;
+box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+width: 295px;
+height: 66px;
+color: #FFF;
+font-size: 35px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+@media (max-width: 766px){
+    .oops-content{
+        row-gap: 12px;
+    }
+    .oops-word{
+    font-size: 65px;    
+    font-weight: 400;
+    }
+    .oops-img{
+        width: 150px;
+    height: 150px;
+    }
+    .span-404{
+      padding-right: 12px;
+      margin-right: 3px;
+    }
+    .p-404{
+     font-size: 30px;
+    }
+    .oops-btn{
+    width: 235px;
+    height: 55px;
+    font-size: 32px;
+    }
+}
