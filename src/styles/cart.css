@@ -1,0 +1,246 @@
+
+.cart{
+    min-height: 99vh;
+    background: #F5F5F5;
+}
+.cart-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 3% 0%;
+}
+.cart-container table{
+ width: 92.5%;
+ border-collapse: collapse;
+ margin-bottom: 3%;
+}
+.cart-heading{
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-bottom: 1px solid #234257;
+width: 23%;
+}
+.cart-td-content{
+    position: relative;
+    width: 23%;
+ border-bottom: 1px solid #234257;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.cart-td-qn{
+    width: 20%; 
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+border-bottom: 1px solid #234257;
+position: relative;
+}
+.cart-div-qn{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    position: absolute;
+    top: 44.4%;
+    left:4%;
+}
+.qnControll{
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.2s ease;
+}
+.qnControll:hover{
+    transform: scale(1.12);
+}
+.trashIcon{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 44.5%;
+    right: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.trashIcon:hover{
+    transform: scale(1.12);
+}
+.cart-item-img{
+    width: 175px;
+    height: 190px;
+}
+.cart-second-payment{
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: row;
+    column-gap: 3%;
+    border-radius: 6px;
+background: rgba(137, 178, 174, 0.50);
+    padding: 1%;
+}
+.shipment-method{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+.shipment-title{
+font-family: Permanent Marker;
+font-size: 27px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.shipment-text{
+font-size: 27px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.div-radio-shipment{
+    margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.totals{
+    display: flex;
+    flex-direction: column;
+}
+.totals-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.total-permanent{
+font-family: Permanent Marker;
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.total-p{
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.totals-table{
+    width: 100%;
+}
+.totals-table td{
+width: 155px
+}
+.total-d{
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-align: end;
+}
+.cart-buttons-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7%;
+}
+.cart-button{
+    width: 184px;
+height: 43px;
+color: #FFF;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+background-color: #234257;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 6px;
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .cart-item-img {
+        width: 205px;
+        height: 235px;
+    }
+    .cart-container{
+        margin: 5% 0%;
+    }
+    .shipment-title{
+        font-size: 25px;
+    }
+    .cart-second-payment{
+       align-items: center;
+    }
+    .cart-buttons-div {
+        gap: 12px;
+    }
+}
+@media screen and (max-width:766px){
+    .cart-second-payment {
+        width: 85%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 7px;
+        padding: 2%;
+    }
+    .shipment-title {
+        font-size: 20px;
+    }
+    .shipment-text {
+        font-size: 20px;
+    }
+    .total-permanent {
+        font-size: 20px;
+    }
+    .totals {
+        align-items: center;
+    }
+    .cart-buttons-div {
+        gap: 5px;
+    }
+    .cart-container table {
+        width: 74.5%;
+    }
+    .cart-td-content {
+        font-size: 20px;
+    }
+    .cart-heading{
+        font-size: 18px;
+        padding: 3px;
+    }
+    .cart-item-img {
+        width: 135px;
+        height: 180px;
+    }
+    .trashIcon {
+        width: 20px;
+        height: 20px;
+        right: 40%;
+    }
+    .qnControll {
+        width: 20px;
+        height: 20px;
+    }
+    td{
+        padding-left: 2px;
+    }
+    .cart-div-qn {
+        top: 42.4%;
+        left: 8%;
+    }
+    .cart-container {
+        margin: 5% 0%;
+    }
+}

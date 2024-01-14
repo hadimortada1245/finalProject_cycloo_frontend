@@ -1,6 +1,6 @@
 import MainNav from '../components/MainNav';
 import Footer from '../components/Footer';
-import bike1 from '../images/image 3.png'
+import bike4 from '../images/image 9.png'
 import goBackIcon from '../images/icons8-arrow-back-100.png'
 import '../styles/singleProduct.css';
 import { Link } from 'react-router-dom';
@@ -19,7 +19,7 @@ function SingleProduct(){
                         <button className='single-button'>Add to cart</button>
                     </div>
                 </div>
-                <img  className='single-product-img' src={bike1} alt ='single-product'/>
+                <img  className='single-product-img' src={bike4} alt ='single-product'/>
             </div>
             <Footer/>
         </div>

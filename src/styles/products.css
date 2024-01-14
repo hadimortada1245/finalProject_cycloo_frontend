@@ -1,5 +1,6 @@
 .porducts-p-c{
     min-height: 99vh;
+    background: #F5F5F5;
 }
 .products-c-content{
     display: flex;

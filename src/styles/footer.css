@@ -1,5 +1,4 @@
 
-
 .footer-container{
     background-color: #234257;
     display: flex;
@@ -10,8 +9,7 @@
     padding-left: 4%;
     padding-right: 4%;
     width: 100%;
- 
-  
+
 }
 .footer-container-d1{
     display: flex;
