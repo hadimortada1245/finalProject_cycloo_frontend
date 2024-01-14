@@ -1,0 +1,205 @@
+.signUp{
+    min-height: 99vh;
+    background-color: #F5F5F5;
+}
+.signUp-container{
+    display: flex;
+    flex-direction: row;
+    gap: 6%;
+}
+.inputs-container {
+ display: flex;
+ flex-direction: column;
+ width: 50%;
+}
+.inputs-container form{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.signUp-text-content{
+    border-radius: 0px 0px 650px 0px;
+background: rgba(137, 178, 174, 0.50);
+display: flex;
+flex-direction: column;
+width: 40%;
+}
+.signUp-text-content-title{
+    color: #234257;
+font-family: Permanent Marker;
+font-size: 45px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+position: absolute;
+top:7%;
+left:3%;
+}
+.signUp-text-content-p {
+    width: 30%;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    top: 18%;
+    left: 3%;
+}
+.signUp-title{
+font-family: Permanent Marker;
+font-size: 45px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.inputs-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4%;
+    gap: 20px;
+}
+.form-row-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.input-div{
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    justify-content: flex-start;
+    width: 50%;
+}
+.input-div input{
+    height: 45px;
+    border-radius: 6px;
+    border: 1px solid #234257;
+    background: inherit;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    outline: 0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 3px;
+}
+.input-div label{
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    align-self: flex-start;
+}
+.btn-signUp-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 10px;
+}
+.btn-signUp-container button{
+    width:50%;
+    border-radius: 6px;
+    border: 1px solid #234257;
+    background: #234257;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+}
+.sign-p {
+    font-size: 25px;
+}
+.sign-bike-container{
+   
+    border-bottom: 1px solid #234257;
+    position: relative;
+    margin: 5.5% 2% 6.5% 2%;
+}
+.sign-bikeIcon{
+    width: 100px;
+height: 100px;
+position: absolute;
+left: 35%;
+bottom:-18px;
+}
+@media screen and (max-width:766px) {
+    .signUp-text-content {
+        display: none;
+    }
+    .signUp-container{
+        align-items: center;
+        justify-content: center;
+        margin:5% 0%;
+    }
+    .form-row-div {
+        flex-direction: column;
+    }
+    .input-div {
+        width: 100%;
+    }
+    .btn-signUp-container button {
+        width: 100%;
+    }
+    .sign-p {
+        font-size: 22px;
+    }
+    .sign-bike-container {
+        display:none;
+    }
+    .signUp-title {
+        font-size: 40px;
+    }
+    .input-div label {
+        font-size: 25px;
+    }
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .inputs-container {
+        width: 52%;
+        margin-top: 12%;
+        gap:45px;
+    }
+    .signUp-text-content {
+      width: 40%;
+    }
+    .signUp-title {
+        font-family: Permanent Marker;
+        font-size: 32px;
+    }
+    .signUp-text-content-title {
+        font-size: 31px;
+        top:9%;
+        left:1.5%
+    }
+    .signUp-text-content-p {
+        top: 15%;
+    }
+    .sign-bikeIcon {
+        width: 120px;
+        height: 120px;
+        bottom: -21px;
+    }
+    .sign-bike-container {
+        border-bottom: 1px solid #234257;
+        position: relative;
+        margin: 25% 5% 10% 9%;
+    }
+    .input-div {
+        width: 40%;
+    }
+    .signUp-container {
+        gap: 4%;
+    }
+    
+}
