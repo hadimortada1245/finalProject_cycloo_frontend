@@ -172,6 +172,8 @@ border-radius: 6px;
     .cart-item-img {
         width: 205px;
         height: 235px;
+        padding-right: 5px;
+
     }
     .cart-container{
         margin: 5% 0%;
@@ -184,6 +186,9 @@ border-radius: 6px;
     }
     .cart-buttons-div {
         gap: 12px;
+    }
+    td{
+        padding-left: 2px;
     }
 }
 @media screen and (max-width:766px){
@@ -214,20 +219,21 @@ border-radius: 6px;
         width: 74.5%;
     }
     .cart-td-content {
-        font-size: 20px;
+        font-size: 19px;
     }
     .cart-heading{
         font-size: 18px;
         padding: 3px;
     }
     .cart-item-img {
-        width: 135px;
-        height: 180px;
+        width: 120px;
+        height: 100px;
     }
     .trashIcon {
         width: 20px;
         height: 20px;
         right: 40%;
+        top:42.5%;
     }
     .qnControll {
         width: 20px;
@@ -237,7 +243,7 @@ border-radius: 6px;
         padding-left: 2px;
     }
     .cart-div-qn {
-        top: 42.4%;
+        top: 37.4%;
         left: 8%;
     }
     .cart-container {
