@@ -135,3 +135,73 @@ position: absolute;
 left: 40%;
 bottom:-18px;
 }
+@media screen  and (max-width:766px){
+    .login-text{
+        display: none;
+    }
+    /* .login-bike-container{
+        display: none;
+    } */
+    .login-form{
+        width: 100%;
+        margin-top: 10%;
+    }
+    .input-container{
+        width: 65%;
+    }
+    .login-form button {
+        width: 65%;
+    }
+    .login-title {
+        font-size: 35px;
+    }
+    .login-p{
+        font-size: 24px;
+    }
+    .login-form label {
+        font-size: 25px;
+    }
+    .login-form button {
+        height: 45px;
+        font-size: 30px;
+    }
+    .login-bike-container {
+        margin: 35% 5% 10% 9%;
+    }
+    .login-bikeIcon {
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        left: 20%;
+        bottom: -18px;
+    }
+    .login-s {
+        font-size: 24px;
+    }
+}
+@media screen and (min-width:767px) and (max-width:1023px) {
+    .login-form {
+        width: 55%;
+        margin-top: 20%;    
+        row-gap: 25px;
+    }
+    .login-text-title {
+        font-family: Permanent Marker;
+        font-size: 45px;
+        top: 16%;
+        right: 10%;
+    }
+    .login-text-t {
+        font-size: 33px;
+    }
+    .login-bikeIcon {
+        width: 120px;
+        height: 120px;
+        bottom: -21px;
+    }
+    .login-bike-container {
+        border-bottom: 1px solid #234257;
+        position: relative;
+        margin: 30% 5% 10% 9%;
+    }
+}
