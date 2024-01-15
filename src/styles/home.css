@@ -195,6 +195,7 @@ font-size: 25px;
     display: flex;
     flex-direction: column;
     margin-bottom: 2%;
+    position: relative;
 }
 .ride-f{
 display: flex;
@@ -295,7 +296,8 @@ margin-right: 75px;
 }
 @media screen and (max-width:766px){
     .header{
-        margin-bottom: 10%
+        margin-bottom: 10%;
+        height: 670px;  
     }
     .about-section {
         margin-bottom: 10%
@@ -304,8 +306,12 @@ margin-right: 75px;
         font-size: 30px;
     }
     .header-content {
-        top: 26.5%;
-        right: 13%;
+        top: 15%;
+        right: 5%;
+        width:85%;
+    }
+    .hero-join {
+        align-self: flex-end;
     }
     .home-about {
         flex-direction: column-reverse;
@@ -574,5 +580,6 @@ margin-right: 75px;
     }
     .ride{
         height: 355px;
+        width: 80%;
     }
 }

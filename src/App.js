@@ -8,6 +8,7 @@ import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import TrailsPage from "./pages/TrailsPage";
 function App() {
 
     return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/oops" element={ <Oops/>} /> 
             <Route path="/login" element={ <Login/>} /> 
             <Route path="/signUp" element={ <SignUp/>} /> 
+            <Route path="/trails" element={ <TrailsPage/>} /> 
           </Routes>
       </Router>
     );

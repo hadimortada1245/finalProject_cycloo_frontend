@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/signUp.css';
 import bikeIcon from '../images/icons8-bike-100.png'
 function SignUp(){
