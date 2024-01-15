@@ -144,7 +144,7 @@ font-size: 25px;
     flex-wrap: wrap;
     gap: 2%;
     margin: 2% 0% 2% 0%;
-    width: 80%;
+    width: 100%;
 }
 .single-item{
     width: 350px;
@@ -188,7 +188,7 @@ font-size: 25px;
 }
 .ride{
     padding: 1%;
-    width: 75%;
+    width: 80%;
     height: 400px;
     background: rgba(137, 178, 174, 0.50);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -316,6 +316,7 @@ margin-right: 75px;
     .home-about {
         flex-direction: column-reverse;
         height: fit-content;
+        width: 85%;
     }
     .home-about-text {
         padding: 14px;
@@ -346,6 +347,7 @@ margin-right: 75px;
     }
     .home-section-icons{
         margin: 5% 0%;
+        
     }
     .home-section-icons-d {
         width: 200px;
@@ -353,12 +355,14 @@ margin-right: 75px;
     }
     .home-products {
         margin: 5% 0%;
+        width: 90%;
     }
     .rides-h {
         margin: 5% 0% 7% 0%;
     }
    .ride{
     height: fit-content;
+    width: 90%;
    }
     .ride-f{
     flex-direction: column;
@@ -367,7 +371,10 @@ margin-right: 75px;
     }
     .ride-f-t{
         width: 100%;
-        padding: 10px;
+        padding: 2.5px 10px;
+    }
+    .three-points {
+        top: 5px;
     }
     .ride-title{
     font-size: 26px;  
@@ -398,14 +405,15 @@ margin-right: 75px;
         align-items: center;
         justify-content: center;
         margin: 10px 0px;
+        position: unset;
     }
     .rideData {
         display: grid;
         grid-template-columns: repeat(3, 1fr); 
-        gap: 10px; 
+        gap: 4%; 
         align-items: center;
         justify-content: center;
-        margin: 10px 0px;
+        margin: 3%;
     }
     .rideData-title{
     font-size: 20px;
@@ -414,7 +422,7 @@ margin-right: 75px;
         margin-bottom: 2%;
     }
     .rideData-p{
-    font-size: 13px;
+    font-size: 16px;
     }
     .rideData-g{
         display: flex;
@@ -423,6 +431,9 @@ margin-right: 75px;
         flex-direction: column;
         border-right: 2px solid #234257;
         padding: 0px 10px;  
+    }
+    .more-inputs-show {
+        top: 4%;
     }
     .rideData-g3{
         display: flex;
@@ -449,7 +460,7 @@ margin-right: 75px;
     margin: 10px 0px;
     }
     .single-item{
-        width: 95%;
+        width: 100%;
         height: 100%;
         margin-bottom: 5%;
     }
@@ -507,10 +518,13 @@ margin-right: 75px;
     line-height: normal;
     }
     .ride-p{
-        font-size: 17px;
+        font-size:  19px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+    }
+    .rides-container {
+        margin: 14% 0%;
     }
     .ride-s{
         height: 30%;
@@ -531,6 +545,7 @@ margin-right: 75px;
     .imgRide{
     width: 225px;
     height: 200px;
+    top:8%;
     }
     .ride-f-imgs{
         display: flex;
@@ -580,6 +595,6 @@ margin-right: 75px;
     }
     .ride{
         height: 355px;
-        width: 80%;
+        width:93%;;
     }
 }

@@ -2,17 +2,31 @@
         min-height: 99vh;
         background: #F5F5F5;
 }
+.TheBiggest{
+    display: flex;
+    flex-direction: column;
+
+}
+.list-r-t-container{
+    display: flex;
+    flex-direction: column;
+    row-gap:10px;
+    justify-content: flex-start;
+    position:absolute;
+    margin-top: 1%;
+    left:10%
+}
 .rides-container{
     display: flex;
     flex-direction: column;
     row-gap: 15px;
     align-items: center;
     justify-content: center;    
-    margin: 5% 0%;
+    margin: 8% 0%;
 }
 .participantsIcon{
     width: 30px;
-height: 30px;
+    height: 30px;
 }
 .participants-div{
     display: flex;
@@ -21,10 +35,10 @@ height: 30px;
     gap: 1.5%;
 }
 .participants-number{
-font-size: 22px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .three-points{
     position: absolute;
@@ -77,12 +91,201 @@ line-height: normal;
     outline: 0;
 }
 .more-inputs-btn:hover{
-cursor: pointer;
-background: rgba(137, 178, 174, 0.50);
-border: 1px solid #234257;
+    cursor: pointer;
+    background: rgba(137, 178, 174, 0.50);
+    border: 1px solid #234257;
+}
+/* trails section */
+.list-r-t-container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap:5%
+}
+.list-r-t-container ul li {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.list-r-t-container ul li:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #234257;
+}
+.list-r-t-container ul li.active {
+    border-bottom: 2px solid #234257;
+  }
+.discover-p{
+font-family: Permanent Marker;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.trails-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: center;    
+    margin:8% 0%;
+}
+.trail{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    height: 300px;
+    border-radius: 6px;
+    background: rgba(137, 178, 174, 0.50);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.trail-content-text{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 100%;
+    position: relative;
+}
+.trail-map{
+    width: 100%;
+    height: 100%;
+}
+.trail-content-head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.3% 1% 0.3% 0.3%;
+}
+.trail-name{
+    font-family: Permanent Marker;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.more-details-trail{
+    width: 30px;
+    height: 30px;
+    transition: transform 0.1s ease;
+}
+.more-details-trail:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.trail-description{
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 93%;
+}
+.trail-data-div{
+    margin: 2% -1%  ;
+}
+.participantsLikes{
+    margin-left: 22%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+}
+.likeIcon{
+    width: 45px;
+    height: 45px;
+    transition: transform 0.2s ease;
+}
+.likeIcon:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.n-likes{
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.more-inputs-trails{
+    top: 12.5%;
+}
+.more-info-btn{
+visibility: visible;
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    z-index: 2;
+    position: absolute;
+    top: 12%;
+    right: 0;
+    border-radius: 6px;
+    background-color: #F5F5F5;
 }
 @media screen and (min-width:767px) and (max-width:1023px) {
+    .rides-container {
+        margin: 14% 0%;
+    }
     .three-points{
         top:0px
+    }
+    .trail {
+        width: 95%;
+       height: 305px;
+    }
+    .trail-description {
+        font-size: 21px;
+    }  
+    .participantsLikes {
+        margin-left: 5%;
+    }      
+    .trails-container {
+        margin: 15% 0%;
+    }
+    .list-r-t-container {
+        margin-top: 2%;
+        left: 3%;
+    }
+}
+@media screen and (max-width:766px) {
+    .rides-container {
+        margin: 25% 0%;
+    }
+    .list-r-t-container {
+        row-gap: 1px;
+        margin-top: 2%;
+        left: 5%;
+    }
+    .discover-p {
+        font-size: 25px;
+    }
+    .trails-container {
+        margin: 25% 0%;
+    }
+    .more-info-btn{
+        top: 7%;
+    }
+    .more-inputs-show {
+        top: 4%;
+        width: 150px;
+    }
+    .trail{
+        flex-direction: column-reverse;
+        height: fit-content;
+        width: 90%;
+    }
+    
+    .trail-content-text {
+        row-gap: 3px;
+    }
+    .trail-description {
+        width: 100%;
+        padding: 0% 2% 0% 2%;
+    }
+    .trail-content-head {
+        padding: 1% 2% 1% 2%;
+    }
+    .participantsLikes {
+        margin-left: 3%;
     }
 }
