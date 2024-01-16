@@ -9,11 +9,11 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import TrailsPage from "./pages/TrailsPage";
+import UserDashboard from "./pages/UserDashboard";
 function App() {
 
     return (
       <Router>
-        
           <Routes>
             <Route path="/" element={ <Home/>} />
             <Route path="/about" element={ <About/>} />
@@ -25,6 +25,7 @@ function App() {
             <Route path="/login" element={ <Login/>} /> 
             <Route path="/signUp" element={ <SignUp/>} /> 
             <Route path="/trails" element={ <TrailsPage/>} /> 
+            <Route path="/dashboard" element={ <UserDashboard/>} /> 
           </Routes>
       </Router>
     );
