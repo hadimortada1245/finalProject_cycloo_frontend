@@ -1,0 +1,93 @@
+.requestActions{
+    width: 35px;
+    height: 35px;
+    transition: transform 0.1s ease;
+}
+.requestActions:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.welcome-p-d-a{
+    color: #FFF;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 4%;
+}
+.item-d-a{
+    width: 100px;
+    height: 100px;
+}
+.rides-admin-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: -2%;
+}
+.rides-admin-container button{
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #234257;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 6px;
+    width: 100px;
+    height: 35px;
+    align-self: flex-end;
+}
+.order-admin-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: -3%;
+}
+.order-admin-container button{
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #234257;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 6px;
+    width: 100px;
+    height: 35px;
+    align-self: flex-end;
+
+}
+.rides-admin-ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 3%;   
+    margin-left: 4%;
+}
+.rides-admin-ul li{
+    color: #FFF;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.rides-admin-ul li:hover{
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+}
+.active-list-admin{
+    border-bottom: 2px solid #fff;
+}
+.not-active{
+ border: 0px solid #fff;
+}
+@media screen and (max-width:766px) {
+    .order-admin-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: -10%;
+    }
+}

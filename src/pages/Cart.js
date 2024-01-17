@@ -8,6 +8,7 @@ import '../styles/cart.css';
 import { Link } from 'react-router-dom';
 function Cart(){
     return(
+        
         <div className='cart'>
             <MainNav/>
             <div className='cart-container'>

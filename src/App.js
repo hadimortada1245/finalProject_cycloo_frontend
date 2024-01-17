@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import TrailsPage from "./pages/TrailsPage";
 import UserDashboard from "./pages/UserDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
 function App() {
 
     return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/signUp" element={ <SignUp/>} /> 
             <Route path="/trails" element={ <TrailsPage/>} /> 
             <Route path="/dashboard" element={ <UserDashboard/>} /> 
+            <Route path="/admin" element={ <AdminDashboard/>} /> 
           </Routes>
       </Router>
     );
