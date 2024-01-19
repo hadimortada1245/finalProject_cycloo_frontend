@@ -55,7 +55,7 @@ function UserDashboard() {
                             <li className='burger-li'><img onClick={() => setShowMenu(true)} src={BurgerMenu} alt='burgerIcon' className='burgerIcon-d' /></li>
                         </ul>
                         <div className={showMenu ? `burger-section1` : `hideMenu`}>
-                            <div className='div-x'><img onClick={() => setShowMenu(false)} src={xIcon} alt='x' /></div>
+                            <div className='div-x'><img onClick={() => setShowMenu(false)} src={xIcon} alt='x' className='div-x-img' /></div>
                             <p className='p-burger'onClick={() => { setShowMenu(false); setSection("Overview") }}>Overview</p>
                             <p className='p-burger' onClick={() => { setShowMenu(false); setSection("Orders") }}>Orders</p>
                             <p className='p-burger' onClick={() => { setShowMenu(false); setSection("Rides") }}>Rides</p>

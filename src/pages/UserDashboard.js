@@ -45,12 +45,12 @@ function UserDashboard() {
                             <li className='ul-d-li-btn'><button className='logOut-d'>Log out</button></li>
                             <li className='burger-li'><img onClick={() => setShowMenu(true)} src={BurgerMenu} alt='burgerIcon' className='burgerIcon-d' /></li>
                         </ul>
-                        <div className={showMenu ? `burger-section1` : `hideMenu`}>
+                        <div className={showMenu ? `burger-section2` : `hideMenu`}>
                             <div className='div-x'><img onClick={() => setShowMenu(false)} src={xIcon} alt='x' /></div>
-                            <p className='p-burger'onClick={() => { setShowMenu(false); setSection("Overview") }}>Overview</p>
-                            <p className='p-burger' onClick={() => { setShowMenu(false); setSection("Orders") }}>Orders</p>
-                            <p className='p-burger' onClick={() => { setShowMenu(false); setSection("Rides") }}>Rides</p>
-                            <button className='burgerButton1'>Log out</button>
+                            <p className='p-burger2'onClick={() => { setShowMenu(false); setSection("Overview") }}>Overview</p>
+                            <p className='p-burger2' onClick={() => { setShowMenu(false); setSection("Orders") }}>Orders</p>
+                            <p className='p-burger2' onClick={() => { setShowMenu(false); setSection("Rides") }}>Rides</p>
+                            <button className='burgerButton2'>Log out</button>
                         </div>
                     </div>
                 </div>
