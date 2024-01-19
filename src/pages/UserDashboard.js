@@ -14,22 +14,19 @@ function UserDashboard() {
         const currentTime = new Date().getHours();
         const morningStart = 6;
         const morningEnd = 11;
-
         const afternoonStart = 12;
         const afternoonEnd = 17;
-
         const eveningStart = 18;
         const eveningEnd = 23;
-
-        if (currentTime >= morningStart && currentTime <= morningEnd) {
+        if (currentTime >= morningStart && currentTime <= morningEnd) 
             return <p className='welcome-p-d'>Good morning</p>;
-        } else if (currentTime >= afternoonStart && currentTime <= afternoonEnd) {
+         else if (currentTime >= afternoonStart && currentTime <= afternoonEnd) 
             return <p className='welcome-p-d'>Good afternoon</p>;
-        } else if (currentTime >= eveningStart && currentTime <= eveningEnd) {
+         else if (currentTime >= eveningStart && currentTime <= eveningEnd) 
             return <p className='welcome-p-d'>Good evening</p>;
-        } else {
+         else 
             <p className='welcome-p-d'>Welome to your dashboard</p>
-        }
+        
     }
     return (
         <div className='dash-container'>

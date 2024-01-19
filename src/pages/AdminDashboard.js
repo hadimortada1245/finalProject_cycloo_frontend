@@ -1,7 +1,6 @@
 import '../styles/userDashboard.css';
 import '../styles/adminDashboard.css';
 import '../styles/popups.css';
-import { Link } from 'react-router-dom';
 import AdminOverview from '../components/AdminOverview';
 import AdminOrders from '../components/AdminOrders';
 import AdminUsers from '../components/AdminUsers';
@@ -10,9 +9,17 @@ import AdminRides from '../components/AdminRides';
 import AdminRequests from '../components/AdminRequests';
 import AdminReports from '../components/AdminReports';
 import xIcon from '../images/icons8-x-48.png';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getCountUser } from '../actions/totalUsers';
+import { useState ,useEffect } from 'react';
 import BurgerMenu from '../images/icons8-menu-50 (1).png';
 function UserDashboard() {
+    const totalUsers = useSelector((state) => state.totalUsers);
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(getCountUser());
+    }, [dispatch])
     const [section, setSection] = useState("Overview");
     const [activeItem, setActiveItem] = useState(0);
     const [ridesSection, setRidesSection] = useState("Rides");
@@ -22,28 +29,25 @@ function UserDashboard() {
         const currentTime = new Date().getHours();
         const morningStart = 6;
         const morningEnd = 11;
-
         const afternoonStart = 12;
         const afternoonEnd = 17;
-
         const eveningStart = 18;
         const eveningEnd = 23;
-
-        if (currentTime >= morningStart && currentTime <= morningEnd) {
+        if (currentTime >= morningStart && currentTime <= morningEnd) 
             return <p className='welcome-p-d'>Good morning</p>;
-        } else if (currentTime >= afternoonStart && currentTime <= afternoonEnd) {
+         else if (currentTime >= afternoonStart && currentTime <= afternoonEnd) 
             return <p className='welcome-p-d'>Good afternoon</p>;
-        } else if (currentTime >= eveningStart && currentTime <= eveningEnd) {
+         else if (currentTime >= eveningStart && currentTime <= eveningEnd) 
             return <p className='welcome-p-d'>Good evening</p>;
-        } else {
+         else 
             return <p className='welcome-p-d'>Welome to your dashboard</p>
-        }
+        
     }
     return (
         <div className='dash-container'>
             <div className='nav-container'>
                 <div className='nav-content-d'>
-                    <div className='cycloo-d'><Link to='/'>Cycloo</Link></div>
+                    <div className='cycloo-d'>Cycloo</div>
                     <div>
                         <ul className='ul-d'>
                             <li key={0} onClick={() => { setActiveItem(0); setSection("Overview") }} className={0 === activeItem ? 'ul-d-li-active-d' : 'ul-d-li'}>Overview</li>
@@ -75,7 +79,7 @@ function UserDashboard() {
                         <li key={1} onClick={() => { setActiveRidesItem(1); setRidesSection("Requests") }} className={1 === activeRidesItem ? 'active-list-admin' : 'not-active'} >Requests</li>
                         <li key={2} onClick={() => { setActiveRidesItem(2); setRidesSection("Reports") }} className={2 === activeRidesItem ? 'active-list-admin' : 'not-active'} >Reports</li>
                         </ul>}
-                    {section === "Users" && <p className='welcome-p-d-a'>Total users: 23 </p>}
+                    {section === "Users" && <p className='welcome-p-d-a'>Total users: {totalUsers} </p>}
                     {section === "Products" && <p className='welcome-p-d-a'>Total products: 23 </p>}
                 </div>
             </div>

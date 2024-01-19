@@ -11,39 +11,39 @@
   }
   
   .delete-popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 32.5%;
-    height: 20%;
-    display: flex;
-    flex-direction: column;
-    row-gap: 10%;
-    justify-content: flex-start;
-  }
-  .delete-popup-t{
-    font-size: 1.325rem;
-    font-weight: 600;
-  }
-  .delete-popup-p{
-    font-weight: 400;
-    font-size: 1.125rem;
-  }
-  .delete-popup-buttons-div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    gap:2%;
-  }
-  .delete-popup-cancel-btn{
-      width: 20%;
+      background: white;
+      padding: 20px 20px 0px 20px;
       border-radius: 6px;
-      font-size: 22px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 32.5%;
+      height: 22.5%;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      row-gap: 12%;
+      justify-content: flex-start;
+    }
+    .delete-popup-t{
+        font-size: 1.325rem;
+        font-weight: 600;
+    }
+    .delete-popup-p{
+        font-weight: 400;
+        font-size: 1.125rem;
+    }
+    .delete-popup-buttons-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap:2%;
+    }
+    .delete-popup-cancel-btn{
+        width: 20%;
+        border-radius: 6px;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .delete-popup-confirm-btn{
         width: 20%;
@@ -65,4 +65,51 @@
         cursor: pointer;
         border: 2px solid #234257;
     }
+    @media screen and (min-width:767px) and (max-width:1024px) {
+        .delete-popup-confirm-btn{
+            width: 25%;
+    font-size: 30px;
+        }
+        .delete-popup-cancel-btn{
+            width: 25%;
+    font-size: 30px;
+        }
+        .delete-popup-content {
+            width: 70%;
+            height: 22%;
+            row-gap: 14%;
+            padding:20px;
+        }
+        .delete-popup-t {
+            font-size: 1.755rem;
+        }
+        .delete-popup-p{
+            font-size: 1.495rem;
+        }
+        
+        
+    }
     
+    @media screen and (max-width:766px){
+        .delete-popup-t {
+            font-size: 1.250rem;
+        }
+        .delete-popup-confirm-btn{
+            width: 30%;
+            font-size: 20px;
+        }
+        .delete-popup-cancel-btn{
+            width: 30%;
+            font-size: 20px;
+            
+        }
+        .delete-popup-content {
+            width: 80%;
+            height: 25%;
+            padding: 20px;
+            row-gap: 12%;
+        }
+        .delete-popup-p{
+            font-size: 1.925ch;
+        }
+    }

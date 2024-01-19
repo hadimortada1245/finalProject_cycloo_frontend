@@ -1,15 +1,23 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getAllUsers } from '../actions/user';
+import { getAllUsers,deleteUser } from '../actions/user';
 import { useEffect, useState } from 'react';
 import trashIcon from '../images/icons8-trash-52.png'
 function AdminUsers() {
     const users = useSelector((state) => state.users);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllUsers());
-    }, [dispatch])
+    }, [dispatch,deleteUser()])
     const [showDeletePopup , setShowDeletePopup]=useState(false);
+    const [user,setUser]=useState(null);
+    const handleDeleteUser = () => {
+        if (user) {
+            dispatch(deleteUser(user.id));
+            setShowDeletePopup(false);
+        }
+    }
+    
     return (
         <>
             <table className='order-table1'>
@@ -36,7 +44,7 @@ function AdminUsers() {
                                 <td className='td-user-d' data-cell="Orders">{user.ride_count}</td>
                                 <td className='td-user-d' data-cell="Actions">
                                     <div className="icons-div">
-                                        <img src={trashIcon} onClick={()=>{setShowDeletePopup(true)}} alt='trashIcon' className='detailsIcon' />
+                                        <img src={trashIcon} onClick={()=>{setShowDeletePopup(true);setUser(user)}} alt='trashIcon' className='detailsIcon' />
                                     </div>
                                 </td>
                             </tr>
@@ -49,10 +57,11 @@ function AdminUsers() {
           <div className="delete-popup-content">
             <p className='delete-popup-t'>Delete user?</p>
             <hr></hr>
-            <p className='delete-popup-p'>Click confirm to delete <b>Hadi</b></p>
+            <p className='delete-popup-p'>Click confirm to delete <b>{user && user.name}</b></p>
+
             <div className='delete-popup-buttons-div'>
             <button onClick={()=>setShowDeletePopup(false)} className='delete-popup-cancel-btn'>Cancel</button>
-            <button onClick={()=>setShowDeletePopup(true)} className='delete-popup-confirm-btn'>Confirm</button>
+            <button onClick={()=>{handleDeleteUser()}} className='delete-popup-confirm-btn'>Confirm</button>
             </div>
             
           </div>

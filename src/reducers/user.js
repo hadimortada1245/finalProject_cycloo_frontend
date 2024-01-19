@@ -12,8 +12,6 @@ const userReducer = (state = [], action) => {
         );
       case "getUserById":
         return action.payload;
-      case "login":
-        return action.payload;
       default:
         return state;
     }

@@ -47,7 +47,7 @@ box-shadow: 0px 4px 4px 0px #234257;
         border: 0px solid #234257;
         display: grid;
         gap:0.5rem;
-        grid-template-columns: 15ch auto;
+        grid-template-columns: 11.5ch  auto;
         padding:0.75rem 1rem
     }
     .td-user-d::before{
