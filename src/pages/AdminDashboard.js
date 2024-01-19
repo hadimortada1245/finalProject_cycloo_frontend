@@ -1,5 +1,6 @@
 import '../styles/userDashboard.css';
 import '../styles/adminDashboard.css';
+import '../styles/popups.css';
 import { Link } from 'react-router-dom';
 import AdminOverview from '../components/AdminOverview';
 import AdminOrders from '../components/AdminOrders';
