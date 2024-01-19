@@ -4,18 +4,36 @@ import requestImg from '../images/icons8-request-64.png';
 import reportsImg from '../images/icons8-report-100.png';
 import cancel from '../images/icons8-x-50.png';
 import approve from '../images/icons8-correct-64.png';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {getCountOrders} from '../actions/totalOrders';
+import {getCountReports} from '../actions/totalRports';
+import {getCountRides} from '../actions/rides';
+import {getCountRequests} from '../actions/totalRequests';
+import { useEffect } from 'react';
 function AdminOverview() {
+    const ordersCount = useSelector((state) => state.totalOrders);
+    const reportsCount = useSelector((state) => state.totalReports);
+    const requestsCount = useSelector((state) => state.totalRequests);
+    const ridesCount = useSelector((state) => state.rides);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getCountOrders());
+        dispatch(getCountReports());
+        dispatch(getCountRides());
+        dispatch(getCountRequests());
+    }, [dispatch]);
     return (
         <>
             <div className='overview-cells'>
                 <div className='overview-cell'><img src={ridesImg} className='cellIcon' alt='cellIcon' /> <p className='total-p-d'>Total rides</p>
-                    <p className='total-p-d'>25</p></div>
+                    <p className='total-p-d'>{ridesCount}</p></div>
                 <div className='overview-cell'><img src={ordersImg} className='cellIcon' alt='cellIcon' /> <p className='total-p-d'>Total orders</p>
-                    <p className='total-p-d'>15</p></div>
+                    <p className='total-p-d'>{ordersCount}</p></div>
                 <div className='overview-cell'><img src={requestImg} className='cellIcon' alt='cellIcon' /> <p className='total-p-d'>Total requests</p>
-                    <p className='total-p-d'>43</p></div>
+                    <p className='total-p-d'>{requestsCount}</p></div>
                 <div className='overview-cell'><img src={reportsImg} className='cellIcon' alt='cellIcon' /> <p className='total-p-d'>Total reports</p>
-                    <p className='total-p-d'>5</p></div>
+                    <p className='total-p-d'>{reportsCount}</p></div>
             </div>
             <table className='order-table1'>
             <thead>

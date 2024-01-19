@@ -1,4 +1,4 @@
-const userReducer = (state = [], action) => {
+const totalUserReducer = (state = [], action) => {
     switch (action.type) {
       case "getCountUser":
         return action.payload;
@@ -6,4 +6,4 @@ const userReducer = (state = [], action) => {
         return state;
     }
   };
-  export default userReducer;
+  export default totalUserReducer;
