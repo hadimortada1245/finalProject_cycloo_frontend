@@ -10,19 +10,31 @@ import {getCountOrders} from '../actions/totalOrders';
 import {getCountReports} from '../actions/totalRports';
 import {getCountRides} from '../actions/rides';
 import {getCountRequests} from '../actions/totalRequests';
-import { useEffect } from 'react';
+import {getJoinRequestsData ,deleteJoinRequest ,acceptJoinRequest} from '../actions/JoinRequests';
+import { useEffect ,useCallback, useState} from 'react';
 function AdminOverview() {
     const ordersCount = useSelector((state) => state.totalOrders);
     const reportsCount = useSelector((state) => state.totalReports);
     const requestsCount = useSelector((state) => state.totalRequests);
     const ridesCount = useSelector((state) => state.rides);
+    const joinRequests = useSelector((state) => state.joinRequests);
     const dispatch = useDispatch();
+    const [request ,setRequest]=useState();
+    const [showAccpetPopup , setShowAccpetPopup]=useState(false);
     useEffect(() => {
         dispatch(getCountOrders());
         dispatch(getCountReports());
         dispatch(getCountRides());
         dispatch(getCountRequests());
-    }, [dispatch]);
+        dispatch(getJoinRequestsData());
+    }, [dispatch,deleteJoinRequest]);
+      const handleCancel = useCallback((user_id, ride_id,id) => {
+        dispatch(deleteJoinRequest(user_id, ride_id,id));
+      }, [dispatch]);
+      const handleAcceptRequest=()=>{
+        dispatch(acceptJoinRequest(request.user_id, request.ride_id,request.id));
+        setShowAccpetPopup(false);
+      }
     return (
         <>
             <div className='overview-cells'>
@@ -40,67 +52,47 @@ function AdminOverview() {
                 <tr>
                     <th className='order-th'>User</th>
                     <th className='order-th'>Level</th>
-                    <th className='order-th'>ride</th>
+                    <th className='order-th'>Ride</th>
                     <th className='order-th'>Dificulty</th>
                     <th className='order-th'>Distance</th>
                     <th className='order-th'>Actions</th>   
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td className='td-user-d' data-cell="User">Anna klio</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="ride">Zahle</td>
-                <td className='td-user-d' data-cell="Dificulty">Hard</td>
-                <td className='td-user-d' data-cell="Distance">71 km</td>
+                {
+                    joinRequests && joinRequests.map((request,index)=>(
+                        <tr key={index}>
+                <td className='td-user-d' data-cell="User">{request.user_name}</td>
+                <td className='td-user-d' data-cell="Level">{request.user_level}</td>
+                <td className='td-user-d' data-cell="ride">{request.ride_title}</td>
+                <td className='td-user-d' data-cell="Dificulty">{request.ride_difficulty}</td>
+                <td className='td-user-d' data-cell="Distance">{request.ride_distance} km</td>
                 <td className='td-user-d' data-cell="Actions">
                     <div className="icons-div">
-                    <img src={approve} alt='approve' className='requestActions'/>
-                    <img src={cancel} alt='cancel' className='requestActions'/>
+                    <img src={approve} onClick={()=>{setShowAccpetPopup(true);setRequest(request)}} alt='approve' className='requestActions'/>
+                    <img src={cancel} onClick={()=>handleCancel(request.user_id,request.ride_id,request.id)} alt='cancel' className='requestActions'/>
                     </div>
                     </td>
                 </tr>
-                <tr>
-                <td className='td-user-d' data-cell="User">Anna klio</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="ride">Zahle</td>
-                <td className='td-user-d' data-cell="Dificulty">Hard</td>
-                <td className='td-user-d' data-cell="Distance">71 km</td>
-                <td className='td-user-d' data-cell="Actions">
-                    <div className="icons-div">
-                    <img src={approve} alt='approve' className='requestActions'/>
-                    <img src={cancel} alt='cancel' className='requestActions'/>
-                    </div>
-                    </td>
-                </tr>
-                <tr>
-                <td className='td-user-d' data-cell="User">Anna klio</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="ride">Zahle</td>
-                <td className='td-user-d' data-cell="Dificulty">Hard</td>
-                <td className='td-user-d' data-cell="Distance">71 km</td>
-                <td className='td-user-d' data-cell="Actions">
-                    <div className="icons-div">
-                    <img src={approve} alt='approve' className='requestActions'/>
-                    <img src={cancel} alt='cancel' className='requestActions'/>
-                    </div>
-                    </td>
-                </tr>
-                <tr>
-                <td className='td-user-d' data-cell="User">Anna klio</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="ride">Zahle</td>
-                <td className='td-user-d' data-cell="Dificulty">Hard</td>
-                <td className='td-user-d' data-cell="Distance">71 km</td>
-                <td className='td-user-d' data-cell="Actions">
-                    <div className="icons-div">
-                    <img src={approve} alt='approve' className='requestActions'/>
-                    <img src={cancel} alt='cancel' className='requestActions'/>
-                    </div>
-                    </td>
-                </tr>
+                    ))
+                }
             </tbody>
         </table>
+        {showAccpetPopup && (
+        <div className="delete-popup">
+          <div className="delete-popup-content">
+            <p className='delete-popup-t'>Accept joinin?</p>
+            <hr></hr>
+            <p className='delete-popup-p'>Confirm joining  <b>{request &&request.user_name }</b></p>
+
+            <div className='delete-popup-buttons-div'>
+            <button onClick={()=>setShowAccpetPopup(false)} className='delete-popup-cancel-btn'>Cancel</button>
+            <button onClick={()=>{handleAcceptRequest()}} className='delete-popup-confirm-btn'>Confirm</button>
+            </div>
+            
+          </div>
+        </div>
+      )}
             </>
     );
 }

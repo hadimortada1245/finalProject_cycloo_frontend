@@ -8,10 +8,10 @@ function AdminUsers() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllUsers());
-    }, [dispatch,deleteUser()])
+    }, [dispatch,deleteUser])
     const [showDeletePopup , setShowDeletePopup]=useState(false);
     const [user,setUser]=useState(null);
-    const handleDeleteUser = () => {
+    const handleDeleteUser = () => {    
         if (user) {
             dispatch(deleteUser(user.id));
             setShowDeletePopup(false);
@@ -40,8 +40,8 @@ function AdminUsers() {
                                 <td className='td-user-d' data-cell="Email">{user.email}</td>
                                 <td className='td-user-d' data-cell="Phone">{user.phone}</td>
                                 <td className='td-user-d' data-cell="Level">{user.level}</td>
-                                <td className='td-user-d' data-cell="Rides">{user.order_count}</td>
-                                <td className='td-user-d' data-cell="Orders">{user.ride_count}</td>
+                                <td className='td-user-d' data-cell="Rides">{user.ride_count}</td>
+                                <td className='td-user-d' data-cell="Orders">{user.order_count}</td>
                                 <td className='td-user-d' data-cell="Actions">
                                     <div className="icons-div">
                                         <img src={trashIcon} onClick={()=>{setShowDeletePopup(true);setUser(user)}} alt='trashIcon' className='detailsIcon' />

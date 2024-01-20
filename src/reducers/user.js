@@ -5,7 +5,7 @@ const userReducer = (state = [], action) => {
       case "register":
         return [...state, action.payload];
       case "deleteUser":
-        return state.filter((user) => user._id !== action.payload);
+        return state.filter((user) => user.id !== action.payload);
       case "updateUser":
         return state.map((user) =>
           user._id === action.payload.Id ? action.payload.user : user
