@@ -5,7 +5,11 @@ import totalOrdersReducer from "./totalOrders";
 import totalReportsReducer from "./totalReports";
 import totalRequestsReducer from "./totalRequests";
 import joinRequestsReducer from "./joinRequestsData";
+import totalProductsReducer from "./totalProducts";
+import ridesRequestsReducer from "./ridesRequests";
+import productReducer from "./products";
 import ridesReducer from "./rides";
+import reportsReducer from "./reports";
 const allReducers = combineReducers({
   users : userReducer,
   totalUsers: totalUsersReducer,
@@ -13,6 +17,10 @@ const allReducers = combineReducers({
   totalReports: totalReportsReducer,
   totalRequests: totalRequestsReducer,
   joinRequests: joinRequestsReducer,
+  totalProducts: totalProductsReducer,
+  ridesRequests: ridesRequestsReducer,
+  products: productReducer,
+  reports: reportsReducer,
   rides: ridesReducer
 });
 

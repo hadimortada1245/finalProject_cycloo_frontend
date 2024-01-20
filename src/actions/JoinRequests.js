@@ -37,7 +37,6 @@ export const deleteJoinRequest = (user_id,ride_id,Id) => {
 export const acceptJoinRequest = (user_id,ride_id,Id) => {
     return (dispatch) => {
       const data={user_id,ride_id}
-      console.log(user_id, ride_id,Id);
       axios
         .put(`${process.env.REACT_APP_API_URL}/ridesJoining/update`,data)
         .then((response) => {

@@ -12,13 +12,19 @@ import xIcon from '../images/icons8-x-48.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getCountUser } from '../actions/totalUsers';
+import { getCountProducts } from '../actions/totalProducts';
+import { getCountOrders } from '../actions/totalOrders';
 import { useState ,useEffect } from 'react';
 import BurgerMenu from '../images/icons8-menu-50 (1).png';
 function UserDashboard() {
     const totalUsers = useSelector((state) => state.totalUsers);
+    const totalProducts = useSelector((state) => state.totalProducts);
+    const totalOrders = useSelector((state) => state.totalOrders);
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getCountUser());
+        dispatch(getCountProducts());
+        dispatch(getCountOrders());
     }, [dispatch])
     const [section, setSection] = useState("Overview");
     const [activeItem, setActiveItem] = useState(0);
@@ -73,14 +79,14 @@ function UserDashboard() {
                 <div className='welcome-content'>
                     <p className='hello-p-d'>Hello Admin</p>
                     {section === "Overview" && getTimeCategory()}
-                    {section === "Orders" && <p className='welcome-p-d-a'>Total orders: 23 </p>}
+                    {section === "Orders" && <p className='welcome-p-d-a'>Total orders: {totalOrders} </p>}
                     {section === "Rides" && <ul className='rides-admin-ul'>
                         <li key={0} onClick={() => { setActiveRidesItem(0); setRidesSection("Rides") }} className={0 === activeRidesItem ? 'active-list-admin' : 'not-active'}>Rides</li>
                         <li key={1} onClick={() => { setActiveRidesItem(1); setRidesSection("Requests") }} className={1 === activeRidesItem ? 'active-list-admin' : 'not-active'} >Requests</li>
                         <li key={2} onClick={() => { setActiveRidesItem(2); setRidesSection("Reports") }} className={2 === activeRidesItem ? 'active-list-admin' : 'not-active'} >Reports</li>
                         </ul>}
                     {section === "Users" && <p className='welcome-p-d-a'>Total users: {totalUsers} </p>}
-                    {section === "Products" && <p className='welcome-p-d-a'>Total products: 23 </p>}
+                    {section === "Products" && <p className='welcome-p-d-a'>Total products: {totalProducts} </p>}
                 </div>
             </div>
             <div className='dash-content'>

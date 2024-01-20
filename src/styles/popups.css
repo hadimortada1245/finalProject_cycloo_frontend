@@ -51,8 +51,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #234257;
-        color: #fff;
+        background-color: #234257 !important;
+        color: #fff !important;
         font-size: 22px;
         transition: transform 0.2ms ease-in-out;
     }

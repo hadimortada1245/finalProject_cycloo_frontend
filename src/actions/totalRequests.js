@@ -20,4 +20,3 @@ export const getCountRequests = (Id) => {
         });
     };
   };
-//   /ridesJoining/getCountJoiningRequest
