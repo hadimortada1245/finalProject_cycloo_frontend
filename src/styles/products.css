@@ -102,12 +102,15 @@ background: rgba(137, 178, 174, 0.70);
         margin-bottom: 0% !important;
     }
     .filterBy {
-     width: 95px;
+     width: 40%;
     }
     .single{
         margin-bottom: 0% !important;
     }
     .search-input{
         padding-left: 18%;
+    }
+    .search-div {
+        width: 60%;
     }
 }

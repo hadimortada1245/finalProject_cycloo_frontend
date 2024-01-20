@@ -33,7 +33,7 @@ function MainNav (){
                 <Link to ='/cart'> <img src={cartIcon} alt='cart'/></Link>
                     <Link to ='/dashboard'><img src={dashboardIcon} alt='dashboard'/></Link>
                 </div>
-                <Link to='/login'> <button className='burgerButton'>Login/Sign up</button></Link>
+                <Link to='/login'> <button className='burgerButton'>Login</button></Link>
             </div>
         </div>
     );

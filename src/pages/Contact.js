@@ -36,9 +36,10 @@ function Contact(){
             <div className='contact-form'>
                 <p className='contact-title'>get in touch</p>
                 {error&&<span className='error-span'>{error}</span>}
+                {!error&&<span className='error-span'></span>}
                 <form ref={form} onSubmit={sendEmail}>
                 <div className='input-control'>
-                    <input type='text' name="user_name" required/>
+                    <input type='text' name="user_name" autoComplete='off' required/>
                     <label>
                         <span style={{ transitionDelay: "0ms" }}>U</span>
                         <span style={{ transitionDelay: "50ms" }}>s</span>
@@ -51,7 +52,7 @@ function Contact(){
                     </label>
                 </div>
                 <div className='input-control'>
-                    <input type='text' name="user_email" required/>
+                    <input type='text' name="user_email" autoComplete='off' required/>
                     <label>
                         <span style={{ transitionDelay: "0ms" }}>E</span>
                         <span style={{ transitionDelay: "50ms" }}>m</span>
@@ -62,7 +63,7 @@ function Contact(){
                     </label>
                 </div>
                 <div className='input-control'>
-                    <input type='text' name="message" required/>
+                    <input type='text' name="message" autoComplete='off' required/>
                     <label>
                         <span style={{ transitionDelay: "0ms" }}>M</span>
                         <span style={{ transitionDelay: "50ms" }}>e</span>

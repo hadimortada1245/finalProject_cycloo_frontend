@@ -257,10 +257,11 @@ visibility: visible;
         left: 5%;
     }
     .discover-p {
-        font-size: 25px;
+        font-size: 26px;
     }
     .trails-container {
         margin: 25% 0%;
+        row-gap: 40px;
     }
     .more-info-btn{
         top: 7%;
