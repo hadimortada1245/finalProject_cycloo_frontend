@@ -27,7 +27,7 @@ function AdminOverview() {
         dispatch(getCountRides());
         dispatch(getCountRequests());
         dispatch(getJoinRequestsData());
-    }, [dispatch,deleteJoinRequest]);
+    }, [dispatch]);
       const handleCancel = useCallback((user_id, ride_id,id) => {
         dispatch(deleteJoinRequest(user_id, ride_id,id));
       }, [dispatch]);

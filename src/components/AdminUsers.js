@@ -8,7 +8,7 @@ function AdminUsers() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllUsers());
-    }, [dispatch,deleteUser])
+    }, [dispatch])
     const [showDeletePopup , setShowDeletePopup]=useState(false);
     const [user,setUser]=useState(null);
     const handleDeleteUser = () => {    

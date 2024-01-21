@@ -1,12 +1,12 @@
 import axios from "axios";
-export const getCountUser = (Id) => {
+export const getCountUsers = (Id) => {
     return (dispatch) => {
       axios
         .get(`${process.env.REACT_APP_API_URL}/users/getCountUsers`)
         .then((response) => {
           const totalUsers=response.data.result[0].countUsers;
           dispatch({
-            type: "getCountUser",
+            type: "getCountUsers",
             payload: totalUsers,
           });
         })

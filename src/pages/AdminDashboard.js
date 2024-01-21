@@ -11,7 +11,7 @@ import AdminReports from '../components/AdminReports';
 import xIcon from '../images/icons8-x-48.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getCountUser } from '../actions/totalUsers';
+import { getCountUsers } from '../actions/totalUsers';
 import { getCountProducts } from '../actions/totalProducts';
 import { getCountOrders } from '../actions/totalOrders';
 import { useState ,useEffect } from 'react';
@@ -22,7 +22,7 @@ function UserDashboard() {
     const totalOrders = useSelector((state) => state.totalOrders);
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getCountUser());
+        dispatch(getCountUsers());
         dispatch(getCountProducts());
         dispatch(getCountOrders());
     }, [dispatch])

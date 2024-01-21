@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils";
-
 const joinRequestsDataReducer = (state = [], action) => {
     switch (action.type) {
       case "getJoinRequestsData":

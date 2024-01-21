@@ -12,14 +12,14 @@
   
   .delete-popup-content {
       background: white;
-      padding: 20px 20px 0px 20px;
+      padding: 1.5% 1.5% 0.2% 1.5%;
       border-radius: 6px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       width: 32.5%;
-      height: 22.5%;
+      height: fit-content;
       display: flex;
       flex-direction: column;
-      row-gap: 12%;
+      gap: 15px;
       justify-content: flex-start;
     }
     .delete-popup-t{
@@ -36,6 +36,7 @@
         align-items: center;
         justify-content: flex-end;
         gap:2%;
+        margin-bottom: 10px;
     }
     .delete-popup-cancel-btn{
         width: 20%;
@@ -65,20 +66,139 @@
         cursor: pointer;
         border: 2px solid #234257;
     }
+    .add-product-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .add-product-popup-content{
+        background: white;
+        padding: 1.5% 1.5% 0.2% 1.5%;
+        border-radius: 6px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 40%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        justify-content: flex-start;
+    }
+    .add-product-popup-content-inputs{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .add-product-popup-content-inputs-l-i{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 48%;
+    }
+    .add-product-input{
+        border: 1px solid #234257;
+        background-color: inherit;
+        outline: 0;
+        padding: 2px;
+        border-radius: 6px;
+        height: 30px;
+    }
+    .add-product-popup-textArea-container{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+    }
+    .add-product-textArea{
+        padding: 2px;
+        border: 1px solid #234257;
+        background-color: inherit;
+        outline: 0;
+        border-radius: 6px;
+        max-width: 100%;
+        height: 100px;
+        max-height: 150px;
+    }
+    input[type='file']{
+        display: none;  
+    }
+    .file-label{
+        color: #fff;
+        background-color: #234257;
+        font-size: 1.04rem;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 30%;
+        cursor: pointer;
+    }
+    .add-product-popup-content-btns{
+        display: flex;
+        align-items:flex-end;
+        gap: 1%;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+    }
+    .add-product-cancel-btn{
+        background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #234257;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 6px;
+    width: 20% !important;
+    height: 30px !important;
+    }
+    .add-product-submit-btn{
+        background-color: #234257 !important;
+        color: #FFF !important;
+        font-size: 20px !important;
+        width: 20% !important;
+    height: 30px !important;
+    }
+    .add-product-popup-content-inputs-l-i-f{
+    width: 100%;
+    }
+    .choose-product-img-div{
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .error-span-popup{
+        color: #89B2AE;
+    }
+    .notErrorSpan{
+        opacity: 0;
+    }
     @media screen and (min-width:767px) and (max-width:1024px) {
+        .add-product-popup-content {
+            width: 60%;
+        }
         .delete-popup-confirm-btn{
-            width: 25%;
-    font-size: 30px;
+            width: 20%;
+    font-size: 28px;
         }
         .delete-popup-cancel-btn{
-            width: 25%;
-    font-size: 30px;
+            width: 20%;
+    font-size: 28px;
         }
         .delete-popup-content {
             width: 70%;
-            height: 22%;
-            row-gap: 14%;
-            padding:20px;
+            gap: 20px;
         }
         .delete-popup-t {
             font-size: 1.755rem;
@@ -91,23 +211,49 @@
     }
     
     @media screen and (max-width:766px){
+        .add-product-submit-btn {
+            width: 25% !important;
+            height: 30px !important;
+        }
+        .add-product-cancel-btn {
+            width: 25% !important;
+            height: 30px !important;
+        }
+        .add-product-textArea {
+            height: 60px;
+            max-height: 100px;
+        }
+        .add-product-popup-textArea-container {
+            width: 95%;
+        }
+        .add-product-popup-content-inputs-l-i {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 95%;
+        }
+        .add-product-popup-content-inputs {
+            flex-direction: column;
+        }
+        .add-product-popup-content {
+            width: 75%;
+        }
         .delete-popup-t {
             font-size: 1.250rem;
         }
         .delete-popup-confirm-btn{
-            width: 30%;
-            font-size: 20px;
+            width: 25%;
+            font-size: 18px;
         }
         .delete-popup-cancel-btn{
-            width: 30%;
-            font-size: 20px;
+            width: 25%;
+            font-size: 18px;
             
         }
         .delete-popup-content {
             width: 80%;
-            height: 25%;
-            padding: 20px;
-            row-gap: 12%;
+            padding: 2.5% 2.5% 0.2% 2.5%;
+            gap:12px;
         }
         .delete-popup-p{
             font-size: 1.925ch;

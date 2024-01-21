@@ -25,6 +25,9 @@ export const deleteUser = (Id) => {
             type: "deleteUser",
             payload: Id,
           });
+          dispatch({
+            type:'reduceTotalUsers'
+          });
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
