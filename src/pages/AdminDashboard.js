@@ -15,8 +15,14 @@ import { getCountUsers } from '../actions/totalUsers';
 import { getCountProducts } from '../actions/totalProducts';
 import { getCountOrders } from '../actions/totalOrders';
 import { useState ,useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
 import BurgerMenu from '../images/icons8-menu-50 (1).png';
 function UserDashboard() {
+    const navigate=useNavigate();
+    const handleLogoutAction=()=>{
+        localStorage.clear();
+        navigate('/');
+    }
     const totalUsers = useSelector((state) => state.totalUsers);
     const totalProducts = useSelector((state) => state.totalProducts);
     const totalOrders = useSelector((state) => state.totalOrders);
@@ -62,7 +68,7 @@ function UserDashboard() {
                             <li key={3} onClick={() => { setActiveItem(3); setSection("Users") }} className={3 === activeItem ? 'ul-d-li-active-d' : 'ul-d-li'}>Users</li>
                             <li key={4} onClick={() => { setActiveItem(4); setSection("Products") }} className={4 === activeItem ? 'ul-d-li-active-d' : 'ul-d-li'}>Products</li>
                             <li key={5} onClick={() => { setActiveItem(5) }}></li>
-                            <li className='ul-d-li-btn'><button className='logOut-d'>Log out</button></li>
+                            <li className='ul-d-li-btn'><button className='logOut-d' onClick={()=>handleLogoutAction()}>Log out</button></li>
                             <li className='burger-li'><img onClick={() => setShowMenu(true)} src={BurgerMenu} alt='burgerIcon' className='burgerIcon-d' /></li>
                         </ul>
                         <div className={showMenu ? `burger-section1` : `hideMenu`}>
@@ -72,7 +78,7 @@ function UserDashboard() {
                             <p className='p-burger' onClick={() => { setShowMenu(false); setSection("Rides") }}>Rides</p>
                             <p className='p-burger' onClick={() => { setShowMenu(false); setSection("Users") }}>Users</p>
                             <p className='p-burger' onClick={() => { setShowMenu(false); setSection("Products") }}>Products</p>
-                            <button className='burgerButton1'>Log out</button>
+                            <button className='burgerButton1' onClick={()=>handleLogoutAction}>Log out</button>
                         </div>
                     </div>
                 </div>

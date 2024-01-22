@@ -8,7 +8,7 @@ const productReducer = (state = [], action) => {
         return state.filter((product) => product.id !== action.payload);
       case "updateProduct":
         return state.map((product) =>
-          product.id === action.payload.Id ? action.payload.product : product
+          product.id === action.payload.Id ? action.payload.updatedProduct : product
         );
       default:
         return state;

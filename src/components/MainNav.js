@@ -1,5 +1,5 @@
 import '../styles/mainNav.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import dashboardIcon from '../images/icons8-dashboard-50.png';
 import cartIcon from '../images/icons8-cart-48.png';
 import menutIcon from '../images/icons8-menu-50.png';
@@ -7,6 +7,11 @@ import xIcon from '../images/icons8-x-48.png';
 import { useState } from 'react';
 function MainNav (){
     const [showMenu,setShowMenu]=useState(false);
+    const navigate=useNavigate();
+    const handleLogoutAction=()=>{
+        localStorage.clear();
+        navigate('/');
+    }
     return (
         <div className="mainNav">
             <div className='cycloo'><Link to ='/'>Cycloo</Link></div>

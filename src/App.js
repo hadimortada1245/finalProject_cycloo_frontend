@@ -11,9 +11,13 @@ import SignUp from "./pages/SignUp";
 import TrailsPage from "./pages/TrailsPage";
 import UserDashboard from "./pages/UserDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
     return (
+      <div>
+      <ToastContainer/> 
       <Router>
           <Routes>
             <Route path="/" element={ <Home/>} />
@@ -30,6 +34,7 @@ function App() {
             <Route path="*" element={ <Oops/>} /> 
           </Routes>
       </Router>
+      </div>
     );
   }
   
