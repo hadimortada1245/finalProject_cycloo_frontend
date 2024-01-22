@@ -1,29 +1,14 @@
 import axios from "axios";
-export const getCountRides = (Id) => {
-    return (dispatch) => {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/rides/count`)
-        .then((response) => {
-          const totalRides=response.data.result[0].count;
-          dispatch({
-            type: "getCountRides",
-            payload: totalRides,
-          });
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
-    };
-  };
-  export const getAllRides = () => {
+
+  export const getAllRides_d = () => {
     return (dispatch) => {
       axios
         .get(`${process.env.REACT_APP_API_URL}/ridesJoining/getAllRides`)
         .then((response) => {
-          const users = response.data.result;
+          const rides = response.data.result;
           dispatch({
-            type: "getAllRides",
-            payload: users,
+            type: "getAllRides_d",
+            payload: rides,
           });
         })
         .catch((error) => {

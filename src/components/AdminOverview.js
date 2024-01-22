@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {getCountOrders} from '../actions/totalOrders';
 import {getCountReports} from '../actions/totalRports';
-import {getCountRides} from '../actions/rides';
+import {getCountRides} from '../actions/totalRides';
 import {getCountRequests} from '../actions/totalRequests';
 import {getJoinRequestsData ,deleteJoinRequest ,acceptJoinRequest} from '../actions/JoinRequests';
 import { useEffect ,useCallback, useState} from 'react';

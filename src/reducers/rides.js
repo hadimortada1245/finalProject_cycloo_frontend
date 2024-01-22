@@ -1,8 +1,8 @@
 const ridesReducer = (state = [], action) => {
     switch (action.type) {
-      case "getCountRides":
-        return action.payload;
         case "getAllRides":
+        return action.payload;
+        case "getAllRides_d":
         return action.payload;
       case "addRide":
         return [...state, action.payload];
@@ -10,7 +10,7 @@ const ridesReducer = (state = [], action) => {
         return state.filter((ride) => ride.id !== action.payload);
       case "updateRide":
         return state.map((ride) =>
-          ride.id === action.payload.Id ? action.payload.ride : ride
+          ride.id === action.payload.Id ? action.payload.updatedide : ride
         );
       default:
         return state;

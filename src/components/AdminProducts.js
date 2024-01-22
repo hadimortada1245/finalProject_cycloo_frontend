@@ -220,8 +220,6 @@ function AdminProducts() {
                                         <label className='file-label' htmlFor='fileInput'>
                                             Choose image
                                         </label>
-                                        {/* {product && <span className='error-span-popup'>{product && product.img}</span>}
-                                        {!product && !product.img && <span className='error-span-popup'>No file chosen</span>} */}
                                     </div>
                                 </div>
                             </div>
