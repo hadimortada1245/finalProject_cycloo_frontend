@@ -2,12 +2,12 @@ import editIcon from '../images/icons8-write-48.png';
 import trashIcon from '../images/icons8-trash-52.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getAllRides_d, deleteRide } from '../actions/rides';
-import { useEffect, useState } from 'react';
+import { getAllRides_d, deleteRide ,addRide } from '../actions/rides';
+import { useEffect, useState,useRef } from 'react';
 function AdminRides() {
     const [ride, setRide] = useState(null);
     const [showDeletePopup, setShowDeletePopup] = useState(false);
-    const [showAddRidePopup, setShowAddRidePopup] = useState(true);
+    const [showAddRidePopup, setShowAddRidePopup] = useState(false);
     const [title,setTitle]=useState(null);
     const [location,setLocation]=useState(null);
     const [distance,setDistance]=useState(null);
@@ -19,6 +19,18 @@ function AdminRides() {
     const [selectedImg,setSelectedImg]=useState(null);
     const [selectedImgMap,setSelectedImgMap]=useState(null);
     const [addError,setAddError]=useState(false);
+    const [showUpdateRidePopup,setShowUpdateRidePopup]=useState(true);
+    const titleRef=useRef(null);
+    const locationRef=useRef(null);
+    const distanceRef=useRef(null);
+    const costRef=useRef(null);
+    const dateRef=useRef(null);
+    const timeRef=useRef(null);
+    const descriptionRef=useRef(null);
+    const difficultyRef=useRef(null);
+    const elevationRef=useRef(null);
+    const durationRef=useRef(null);
+    const directionRef=useRef(null);
     const rides = useSelector((state) => state.rides);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -35,13 +47,26 @@ function AdminRides() {
         }
     }
     const handleAddRide = () => {
+        if(!title || !location || !distance || !cost || !date || !time || !descripion || !difficuly || !selectedImg || !selectedImgMap)
+        {
+            setAddError("all fields must be filled !");
+            return;
+        }
         console.log(title,location,distance,cost,date,time,descripion,difficuly,selectedImg,selectedImgMap);
-        if(!title || !location || !distance || !cost || !date || !time || !descripion || !difficuly || !selectedImg || !selectedImgMap)setAddError("all fields must be filled !")
+       dispatch(addRide(title,location,distance,cost,date,time,descripion,difficuly,selectedImg,selectedImgMap));
+       setTimeout(() => {
+        setShowAddRidePopup(false);
+        setSelectedImg(null);
+        setSelectedImgMap(null);
+    }, 2800);
     }
-console.log(selectedImgMap);
+    const handleUpdateRide=()=>{
+        console.log('ready to update the ride');
+        console.log(ride)
+    }
     return (
         <div className='rides-admin-container'>
-            <button>Add</button>
+            <button onClick={()=>setShowAddRidePopup(true)}>Add</button>
             <table className='order-table1'>
                 <thead>
                     <tr>
@@ -59,11 +84,11 @@ console.log(selectedImgMap);
                             <td className='td-user-d' data-cell="Name">{ride && ride.title}</td>
                             <td className='td-user-d' data-cell="Date">{ride && validDate(ride.date)}</td>
                             <td className='td-user-d' data-cell="Trail">{ride && ride.status === 0 ? 'False' : 'True'}</td>
-                            <td className='td-user-d' data-cell="Participants">{ride && ride.participants_count}</td>
+                            <td className='td-user-d' data-cell="Participants">{(ride && ride.participants_count) || '0'}</td>
                             <td className='td-user-d' data-cell="Distance">{ride && ride.distance} km</td>
                             <td className='td-user-d' data-cell="actions">
                                 <div className="icons-div">
-                                    <img src={editIcon} alt='editIcon' className='detailsIcon' />
+                                    <img src={editIcon} alt='editIcon' className='detailsIcon' onClick={()=>{setShowUpdateRidePopup(true);setRide(ride);console.log(ride)}} />
                                     <img src={trashIcon} alt='trashIcon' className='detailsIcon' onClick={() => { setRide(ride); setShowDeletePopup(true) }} />
                                 </div>
                             </td>
@@ -149,11 +174,11 @@ console.log(selectedImgMap);
                                     <label className='file-label' htmlFor='fileInput1'>
                                         Choose image
                                     </label>
-                                    {<span className='error-span-popup'></span>}
-                                    {<span className='error-span-popup'>No file chosen</span>}
+                                    {selectedImg&&<span className='error-span-popup'>{selectedImg.name}</span>}
+                                    {!selectedImg&&<span className='error-span-popup'>No file chosen</span>}
                                 </div>
                                 <div className='choose-product-img-div'>
-                                    <input id='fileInput2' type='file' accept='image/*' className='add-product-input' onChange={(e)=>setSelectedImgMap(e.target.files[0])}/>
+                                    <input id='fileInput2' type='file' accept='image/*' className='add-product-input' onChange={(e)=>{setSelectedImgMap(e.target.files[0]);}}/>
                                     <label className='file-label' htmlFor='fileInput2'>
                                         Choose map
                                     </label>
@@ -169,6 +194,104 @@ console.log(selectedImgMap);
                         <div className='add-product-popup-content-btns'>
                             <button className='add-product-cancel-btn' onClick={() => setShowAddRidePopup(false)}>Cancel</button>
                             <button className='add-product-submit-btn' onClick={() => handleAddRide()}>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            )
+            }
+            {showUpdateRidePopup && (
+                <div className='add-product-popup'>
+                    <div className='update-ride-popup-content'>
+                        <div className='add-product-popup-content-inputs'>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Title</p>
+                                <input type='text' className='add-product-input' defaultValue={ride && ride.title} ref={titleRef} />
+                            </div>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Location</p>
+                                <input type='text' className='add-product-input' defaultValue={ride && ride.location} ref={locationRef} />
+                            </div>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Distance</p>
+                                <input type='text' className='add-product-input' defaultValue={ride && ride.distance} ref={distanceRef}/>
+                            </div>
+                        </div>
+                        <div className='add-product-popup-content-inputs'>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Cost</p>
+                                <input type="number" className='add-product-input' defaultValue={ride && ride.cost} ref={costRef}/>
+                            </div>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Date</p>
+                                <input type="date" className='add-product-input' ref={dateRef} defaultValue={ride && ride.date}/>
+                            </div>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Time</p>
+                                <input type="time" className='add-product-input' defaultValue={ride && ride.time} ref={timeRef}/>
+                            </div>
+                        </div>
+                        <div className='add-product-popup-content-inputs'>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Elevation</p>
+                                <input type='number' className='add-product-input' ref={elevationRef} defaultValue={ride && ride.elevation}/>
+                            </div>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Duration</p>
+                                <input type='text' className='add-product-input' ref={durationRef} defaultValue={ride && ride.duration}/>
+                            </div>
+                            <div className='update-ride-popup-content-inputs-l-i'>
+                                <p className='add-product-p'>Direction</p>
+                                <input type='text' className='add-product-input' ref={directionRef} defaultValue={ride && ride.direction}/>
+                            </div>
+                        </div>
+                       
+                        <div className='add-product-popup-content-inputs'>
+                            <div className='add-product-popup-textArea-container'>
+                                <p className='add-product-p'>Description</p>
+                                <textarea className='update-ride-textArea' ref={descriptionRef} defaultValue={ride && ride.description}>
+                                </textarea>
+                            </div>
+                        </div>
+                        <div className='add-product-popup-content-radios'>
+                            <label>
+                                <input type="radio" name="difficulty"  value="Hard" onFocus={(e)=>difficultyRef.current.value=e.target.value}/>
+                                Hard
+                            </label>
+
+                            <label>
+                                <input type="radio" name="difficulty" value="Intermediate" onFocus={(e)=>difficultyRef.current.value=e.target.value}/>
+                                Intermediate
+                            </label>
+
+                            <label>
+                                <input type="radio" name="difficulty" defaultChecked value="Easy" onFocus={(e)=>difficultyRef.current.value=e.target.value}/>
+                                Easy
+                            </label>
+                        </div>
+                        <div className='add-product-popup-content-inputs'>
+                            <div className='add-product-popup-content-inputs-l-i-f'>
+                                <div className='choose-product-img-div'>
+                                <img  className='update-product-img' src={ride && ride.img } alt='current'/>
+                                    <input id='fileInput1' type='file' accept='image/*' className='add-product-input' onChange={(e)=>setSelectedImg(e.target.files[0])}/>
+                                    <label className='file-label' htmlFor='fileInput1'>
+                                        Choose image
+                                    </label>
+                                </div>
+                                <div className='choose-product-img-div'>
+                                <img  className='update-product-img' src={ride && ride.mapImg } alt='current'/>
+                                    <input id='fileInput2' type='file' accept='image/*' className='add-product-input' onChange={(e)=>{setSelectedImgMap(e.target.files[0]);}}/>
+                                    <label className='file-label' htmlFor='fileInput2'>
+                                        Choose map
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr></hr>
+                       { addError && <span className='error-span-popup'>All fields must be filled</span>}
+                       {!addError && <span className='notErrorSpan'>error span</span>}
+                        <div className='add-product-popup-content-btns'>
+                            <button className='add-product-cancel-btn' onClick={() => setShowUpdateRidePopup(false)}>Cancel</button>
+                            <button className='add-product-submit-btn' onClick={() => handleUpdateRide()}>Save</button>
                         </div>
                     </div>
                 </div>

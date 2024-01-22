@@ -192,6 +192,35 @@
     .notErrorSpan{
         opacity: 0;
     }
+    .update-ride-textArea{
+        padding: 2px;
+    border: 1px solid #234257;
+    background-color: inherit;
+    outline: 0;
+    border-radius: 6px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 90px;
+    max-height: 90px;
+    }
+    .update-ride-popup-content{
+        background: white;
+    padding: 1.5% 1.5% 0.2% 1.5%;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: flex-start;
+    }
+    .update-ride-popup-content-inputs-l-i {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 32%;
+    }
     .add-product-popup-content-radios{
         display: flex;
         flex-direction: row;
