@@ -16,7 +16,7 @@ function AdminOverview() {
     const ordersCount = useSelector((state) => state.totalOrders);
     const reportsCount = useSelector((state) => state.totalReports);
     const requestsCount = useSelector((state) => state.totalRequests);
-    const ridesCount = useSelector((state) => state.rides);
+    const ridesCount = useSelector((state) => state.totalRides);
     const joinRequests = useSelector((state) => state.joinRequests);
     const dispatch = useDispatch();
     const [request ,setRequest]=useState();
@@ -64,7 +64,7 @@ function AdminOverview() {
                         <tr key={index}>
                 <td className='td-user-d' data-cell="User">{request.user_name}</td>
                 <td className='td-user-d' data-cell="Level">{request.user_level}</td>
-                <td className='td-user-d' data-cell="ride">{request.ride_title}</td>
+                <td className='td-user-d' data-cell="ride" >{request.ride_title}</td>
                 <td className='td-user-d' data-cell="Dificulty">{request.ride_difficulty}</td>
                 <td className='td-user-d' data-cell="Distance">{request.ride_distance} km</td>
                 <td className='td-user-d' data-cell="Actions">

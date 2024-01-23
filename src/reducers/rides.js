@@ -10,7 +10,11 @@ const ridesReducer = (state = [], action) => {
         return state.filter((ride) => ride.id !== action.payload);
       case "updateRide":
         return state.map((ride) =>
-          ride.id === action.payload.Id ? action.payload.updatedide : ride
+          ride.id === action.payload.Id ? action.payload.updatedRide : ride
+        );
+      case "updateRideStatus":
+        return state.map((ride) =>
+          ride.id === action.payload.Id ? action.payload.updatedRide : ride
         );
       default:
         return state;
