@@ -172,6 +172,7 @@
         font-size: 20px !important;
         width: 20% !important;
     height: 30px !important;
+    border-radius: 6px;
     }
     .add-product-popup-content-inputs-l-i-f{
         width: 100%;

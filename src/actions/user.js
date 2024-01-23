@@ -39,7 +39,6 @@ export const getCountUser = (Id) => {
       axios
         .get(`${process.env.REACT_APP_API_URL}/users/getCountUsers`)
         .then((response) => {
-          console.log(response.data.result[0].countUsers);
           dispatch({
             type: "getCountUser",
             payload: response,
@@ -50,3 +49,19 @@ export const getCountUser = (Id) => {
         });
     };
   };
+  export const login = (email, password) => {
+    return (dispatch) => {
+      const data = { email, password };
+      return axios
+        .post(`${process.env.REACT_APP_API_URL}/users/login`, data)
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    };
+  };
+  
+  
+
