@@ -17,6 +17,10 @@
     flex-direction: column;
     row-gap: 20px;
 }
+.error-span-registre{
+    align-self: flex-start;
+    font-size: 20px;
+}
 .signUp-text-content{
     border-radius: 0px 0px 650px 0px;
 background: rgba(137, 178, 174, 0.50);

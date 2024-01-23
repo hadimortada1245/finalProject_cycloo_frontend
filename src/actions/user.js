@@ -62,6 +62,19 @@ export const getCountUser = (Id) => {
         });
     };
   };
+  export const registre = (name,email,phone,address, password) => {
+    return (dispatch) => {
+      const data = { name,email,phone,address, password };
+      return axios
+        .post(`${process.env.REACT_APP_API_URL}/users/register`, data)
+        .then((response) => {
+          return response.data;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    };
+  };
   
   
 
