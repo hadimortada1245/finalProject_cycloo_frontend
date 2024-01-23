@@ -1,15 +1,11 @@
 const ridesRequestsReducer = (state = [], action) => {
     switch (action.type) {
-      case "getAllRequests":
+      case "getRidesRequestsData":
         return action.payload;
-      case "addRequest":
+      case "addRideRequest":
         return [...state, action.payload];
-      case "deleteRequest":
+      case "deleteRideRequest":
         return state.filter((request) => request.id !== action.payload);
-      case "updateRequest":
-        return state.map((request) =>
-          request.id === action.payload.Id ? action.payload.request : request
-        );
       default:
         return state;
     }

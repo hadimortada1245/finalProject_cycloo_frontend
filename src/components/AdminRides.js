@@ -74,6 +74,8 @@ function AdminRides() {
         if(!ride.duration || !ride.direction || ride.elevation===0){
             setRide(ride);
             setShowUpdateRidePopup(true);
+            setSelectedImg(ride.img);
+            setSelectedImgMap(ride.mapImg);
             return;
         }
         dispatch(updateRideStatus(ride.id));
