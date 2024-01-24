@@ -1,4 +1,5 @@
 .delete-popup {
+    z-index: 3;
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +10,36 @@
     justify-content: center;
     align-items: center;
   }
-  
+.report-popup {
+    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .report-textarea{
+    border-radius: 6px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 75px;
+    max-height: 75px;
+    background-color: inherit;
+    padding: 2px;
+    outline: 0;
+  }
+  .report-input{
+    border-radius: 6px;
+    background-color: inherit;
+    outline: 0;
+    width: 35%;
+    padding: 2px;
+    height: 35px;
+  }
   .delete-popup-content {
       background: white;
       padding: 1.5% 1.5% 0.2% 1.5%;
@@ -20,6 +50,26 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      justify-content: flex-start;
+    }
+    .report-titles{
+        font-size: 20px;
+    }
+    .report-div-p{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+  .report-popup-content {
+      background: white;
+      padding: 1.5% 1.5% 0.2% 1.5%;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      width: 40%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
       justify-content: flex-start;
     }
     .delete-popup-t{

@@ -4,6 +4,8 @@ const ridesReducer = (state = [], action) => {
         return action.payload;
         case "getAllRides_d":
         return action.payload;
+        case "getAllRidesForRideSectionWithUser":
+        return action.payload;
       case "addRide":
         return [...state, action.payload];
       case "deleteRide":
