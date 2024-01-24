@@ -139,6 +139,38 @@ export const updateRideStatus = (Id) => {
         });
     };
   };
+  export const getTwoRides = (Id) => {
+    return (dispatch) => {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/rides/lastRideUser/${Id}`)
+        .then((response) => {
+          const rides = response.data.result;
+          dispatch({
+            type: "getTwoRides",
+            payload: rides,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };
+  export const getLatestRide = () => {
+    return (dispatch) => {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/rides/latestRide`)
+        .then((response) => {
+          const rides = response.data.result;
+          dispatch({
+            type: "getLatestRide",
+            payload: rides,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };
   export const getAllRides_h = () => {
     return (dispatch) => {
       axios

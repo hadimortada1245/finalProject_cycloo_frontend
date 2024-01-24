@@ -15,3 +15,19 @@ export const getCountRides = () => {
         });
     };
   };
+export const getCountRidesByUserId = (Id) => {
+    return (dispatch) => {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/ridesJoining/getRidesCountByUserId/${Id}`)
+        .then((response) => {
+          const totalRides=response.data.result[0].count;
+          dispatch({
+            type: "getCountRidesByUserId",
+            payload: totalRides,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };

@@ -6,6 +6,7 @@ import totalReportsReducer from "./totalReports";
 import totalRequestsReducer from "./totalRequests";
 import joinRequestsReducer from "./joinRequestsData";
 import totalProductsReducer from "./totalProducts";
+import totalLikessReducer from "./totalLikes";
 import totalRidesReducer from "./totalRides";
 import ridesRequestsReducer from "./ridesRequests";
 import productReducer from "./products";
@@ -20,6 +21,7 @@ const allReducers = combineReducers({
   joinRequests: joinRequestsReducer,
   totalProducts: totalProductsReducer,
   totalRides: totalRidesReducer,
+  totalLikes: totalLikessReducer,
   ridesRequests: ridesRequestsReducer,
   products: productReducer,
   reports: reportsReducer,
