@@ -101,7 +101,7 @@ function Home() {
             </div>
             <div className='rides-h'>
                 <h2 className='latest-h2'>latest rides</h2>
-                {rides&&<div className='ride'>
+                {rides&&rides[0]&&<div className='ride'>
                     <div className='ride-f'>
                         <div className='ride-f-t'>
                             <p className='ride-title'>{rides[0].title}</p>

@@ -2,6 +2,8 @@ const ridesRequestsReducer = (state = [], action) => {
     switch (action.type) {
       case "getRidesRequestsData":
         return action.payload;
+      case "getRidesRequestsByUserId":
+        return action.payload;
       case "addRideRequest":
         return [...state, action.payload];
       case "deleteRideRequest":

@@ -14,6 +14,8 @@ const ridesReducer = (state = [], action) => {
         return action.payload;
         case "getLatestRide":
         return action.payload;
+        case "getUserRides":
+        return action.payload;
       case "addRide":
         return [...state, action.payload];
       case "deleteRide":

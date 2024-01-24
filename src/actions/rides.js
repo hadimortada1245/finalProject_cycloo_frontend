@@ -123,6 +123,22 @@ export const updateRideStatus = (Id) => {
   };
 };
 
+  export const getUserRides = (Id) => {
+    return (dispatch) => {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/rides/userRides/${Id}`)
+        .then((response) => {
+          const rides = response.data.result;
+          dispatch({
+            type: "getUserRides",
+            payload: rides,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };
   export const getAllRides_d = () => {
     return (dispatch) => {
       axios

@@ -17,6 +17,22 @@ export const getRidesRequestsData = (Id) => {
         });
     };
   };
+export const getRidesRequestsByUserId = (Id) => {
+    return (dispatch) => {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/ridesRequests/getByUserId/${Id}`)
+        .then((response) => {
+          const requestsData=response.data.result;
+          dispatch({
+            type: "getRidesRequestsData",
+            payload: requestsData,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };
 export const deleteRideRequest = (Id) => {
     return (dispatch) => {
       axios
@@ -32,15 +48,14 @@ export const deleteRideRequest = (Id) => {
         });
     };
   };
-export const addRideRequest = (user_id,title,location,distance,date,time,difficuly,description) => {
+export const addRideRequest = (Id,title,location,distance,date,time,difficuly,description) => {
     return (dispatch) => {
       const data={
-        user_id,title,location,distance,date,time,difficuly,description
+        Id,title,location,distance,date,time,difficuly,description
       }
       axios
         .post(`${process.env.REACT_APP_API_URL}/ridesRequests/add`,data)
         .then((response) => {
-          console.log(response);
           toast.success('Your request sent successfully!', {
             position: "top-center",
             position: "top-center",
