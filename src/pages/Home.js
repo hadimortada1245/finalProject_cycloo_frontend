@@ -6,9 +6,9 @@ import easy from '../images/icons8-easy-50.png'
 import van from '../images/icons8-van-50.png'
 import healthy from '../images/icons8-healthy-64 (2).png'
 import safe from '../images/icons8-safety-50.png'
-import bike1 from '../images/image 3.png'
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import {getLatestRide} from '../actions/rides.js';
+import {getThreeProducts} from '../actions/products.js'
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
 function Home() {
@@ -19,9 +19,11 @@ function Home() {
         navigate('/trails');
     }
     const rides = useSelector((state) => state.rides);
+    const products = useSelector((state) => state.products);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getLatestRide());
+        dispatch(getThreeProducts());
     }, [dispatch]);
     const validDate = (d) => {
         const dateObject = new Date(d);
@@ -31,6 +33,7 @@ function Home() {
 
         return dateObject.toISOString().split('T')[0];
     };
+    console.log(products);
     return (
         <>
             <MainNav />
@@ -73,30 +76,17 @@ function Home() {
             <div className='latest-products'>
                 <h2 className='latest-h2'>latest products</h2>
                 <div className='home-products'>
-                    <div className='single-item'>
-                        <img className='home-img-item' src={bike1} alt='item' />
-                        <p className='item-p'>Scott</p>
+                    {products&&products.map((product,index)=>(
+
+                   <div className='single-item single' onClick={()=>navigate('/products')} key={index}>
+                        <img className='home-img-item' src={product.img} alt='item' />
+                        <p className='item-p'>{product.company}</p>
                         <div className='item-t-p'>
-                            <p>Road bike</p>
-                            <p>1300$</p>
+                            <p>{product.name}</p>
+                            <p>{product.price}$</p>
                         </div>
                     </div>
-                    <div className='single-item'>
-                        <img className='home-img-item' src={bike1} alt='item' />
-                        <p className='item-p'>Scott</p>
-                        <div className='item-t-p'>
-                            <p>Road bike</p>
-                            <p>1300$</p>
-                        </div>
-                    </div>
-                    <div className='single-item'>
-                        <img className='home-img-item' src={bike1} alt='item' />
-                        <p className='item-p'>Scott</p>
-                        <div className='item-t-p'>
-                            <p>Road bike</p>
-                            <p>1300$</p>
-                        </div>
-                    </div>
+                ))}
                 </div>
             </div>
             <div className='rides-h'>

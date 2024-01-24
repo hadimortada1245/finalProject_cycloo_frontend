@@ -46,7 +46,7 @@ function AdminProducts() {
         setTimeout(() => {
             setShowAddProductPopup(false);
             setSelectedImage(null);
-        }, 3000);
+        }, 2000);
     }
     const handleUpdateProduct = () => {
         if (selectedImage)
@@ -56,7 +56,7 @@ function AdminProducts() {
             setTimeout(() => {
                 setShowUpdateProductPopup(false);
                 setSelectedImage(null);
-            }, 2800);
+            }, 1000);
     }
     return (
         <div className='order-admin-container'>

@@ -2,6 +2,12 @@ const productReducer = (state = [], action) => {
     switch (action.type) {
       case "getAllProducts":
         return action.payload;
+      case "getThreeProducts":
+        return action.payload;
+      case "getProductsByType":
+        return action.payload;
+      case "getProductsBySearch":
+        return action.payload;
       case "addProduct":
         return [...state, action.payload];
       case "deleteProduct":

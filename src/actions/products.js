@@ -18,6 +18,38 @@ export const getAllProducts = () => {
       });
   };
 };
+export const getThreeProducts = () => {
+  return (dispatch) => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/products/getThreeProducts`)
+      .then((response) => {
+        const products = response.data.result;
+        dispatch({
+          type: "getThreeProducts",
+          payload: products,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+};
+export const getProductsByType = (type) => {
+  return (dispatch) => {
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/products/getProductsByType`, { type })
+      .then((response) => {
+        const products = response.data.result;
+        dispatch({
+          type: "getProductsByType",
+          payload: products,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
+};
 export const addProduct = (selectedImage, productName, productCompany, productType, productPrice, productQuantity, productDelivery, productDescription) => {
   return async (dispatch) => {
     let imageUrl;
