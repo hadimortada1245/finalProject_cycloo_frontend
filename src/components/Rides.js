@@ -19,12 +19,14 @@ const validDate = (d) => {
 };
 
 function Rides() {
+  const [doFetch,setDoFetch]=useState(false);
     const [showDeletePopup,setShowDeletePopup]=useState(false);
     const [showReportPopup,setShowReportPopup]=useState(false)
     const [addError,setAddError]=useState(false)
     const [ride,setRide]=useState(null);
     const navigate=useNavigate();
     const level=localStorage.getItem('level');
+    const token=localStorage.getItem('token');
     const id=localStorage.getItem('id');
     console.log(level,id);
     const dispatch=useDispatch();
@@ -51,7 +53,7 @@ function Rides() {
         if(id)
         dispatch(getAllRidesForRideSectionWithUser(id));
     else dispatch(getAllRides_h())
-    }, [dispatch, id]);
+    }, [dispatch, id,doFetch]);
     const canJoin = (difficulty) => {
         if ((level === "beginner" && (difficulty === "Hard" || difficulty === "Intermediate")) ||
           (level === "Intermediate" && difficulty === "Hard")) {
@@ -74,10 +76,11 @@ function Rides() {
           })
         setTimeout(()=>{
             setShowDeletePopup(false)
-        },[2000])
+            setDoFetch(!doFetch);
+        },[1000])
       }
       const handleJoin = (ride) => {
-        if (!id) {
+        if (!token) {
           navigate('/login');
         } else {
             if(ride.user_joined===1){
@@ -100,19 +103,25 @@ function Rides() {
             return; 
           }
           dispatch(addJoin(id,ride.id,1))
-          console.log(ride);
+          setTimeout(()=>{
+            setDoFetch(!doFetch);
+        },[800])
+          
         }
       };
       const requestJoin=(ride)=>{
-        if (!id) {
+        if (!token) {
             navigate('/login');
           }
         if(ride.user_joined===1 || canJoin(ride.difficuly))return;
         const n=0;
         dispatch(addJoin(id,ride.id,n));
+        setTimeout(()=>{
+          setDoFetch(!doFetch);
+      },[800])
       }
       const addRideReport=()=>{
-        if (!id) {
+        if (!token) {
             navigate('/login');
           }
         setAddError(false)

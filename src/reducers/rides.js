@@ -6,6 +6,10 @@ const ridesReducer = (state = [], action) => {
         return action.payload;
         case "getAllRidesForRideSectionWithUser":
         return action.payload;
+        case "getAllRidesForTrailsSectionWithUser":
+        return action.payload;
+        case "getAllRides_u":
+        return action.payload;
       case "addRide":
         return [...state, action.payload];
       case "deleteRide":

@@ -9,14 +9,22 @@ import safe from '../images/icons8-safety-50.png'
 import bike1 from '../images/image 3.png'
 import map from '../images/WhatsApp Image 2023-12-27 at 13.15.37.jpeg'
 import rideImg from '../images/bicycle (1).jpg'
+import { useNavigate } from 'react-router-dom';
 function Home() {
+    const navigate=useNavigate();
+    const token=localStorage.getItem('token');
+    const joinUsFn=()=>{
+        
+        if(!token){navigate('/login');return;}
+        navigate('/trails');
+    }
     return (
         <>
             <MainNav />
             <div className='header'>
                 <div className='header-content'>
                     <p className='p-hero'>Pedaling means making a real contribution to cleaner air and healthy life.</p>
-                    <button className='hero-join'>Join us</button>
+                    <button className='hero-join' onClick={()=>joinUsFn()}>Join us</button>
                 </div>
             </div>
             <div className='about-section'>
@@ -119,7 +127,7 @@ function Home() {
                             </div>
                         </div>
                         <div>
-                            <button className='view-all-rides'>View all</button>
+                            <button className='view-all-rides' onClick={()=>navigate('/trails')}>View all</button>
                         </div>
                     </div>
 

@@ -12,6 +12,7 @@ function MainNav (){
         localStorage.clear();
         navigate('/');
     }
+    const id=localStorage.getItem('id');
     return (
         <div className="mainNav">
             <div className='cycloo'><Link to ='/'>Cycloo</Link></div>
@@ -23,7 +24,8 @@ function MainNav (){
                     <li className='navItem'><Link to ='/contact'>Contact</Link></li>
                     <li><Link to ='/cart'> <img className ='cartIcon'src={cartIcon} alt='cart'/></Link></li>
                     <li><Link to ='/dashboard'><img className='dashboardIcon' src={dashboardIcon} alt='dashboard'/></Link></li>
-                    <li><Link to='/login'><button className='mainNav-ul-li-button'>Login</button></Link></li>
+                   { !id ?<li><Link to='/login'><button className='mainNav-ul-li-button'>Login</button></Link></li>
+                   :<li><button className='mainNav-ul-li-button' onClick={()=>handleLogoutAction()}>Logout</button></li>}
                     <li className='menuIcon'><img onClick={()=>setShowMenu(true)} src={menutIcon} alt='menu'/></li>
                 </ul>
 
@@ -38,7 +40,7 @@ function MainNav (){
                 <Link to ='/cart'> <img src={cartIcon} alt='cart'/></Link>
                     <Link to ='/dashboard'><img src={dashboardIcon} alt='dashboard'/></Link>
                 </div>
-                <Link to='/login'> <button className='burgerButton'>Login</button></Link>
+                {!id?<Link to='/login'> <button className='burgerButton'>Login</button></Link>:<button onClick={()=>handleLogoutAction()} className='burgerButton'>Logout</button>}
             </div>
         </div>
     );

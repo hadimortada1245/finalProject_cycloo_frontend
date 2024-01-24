@@ -155,6 +155,22 @@ export const updateRideStatus = (Id) => {
         });
     };
   };
+  export const getAllRides_u = () => {
+    return (dispatch) => {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/likedRides/getAllRides_u`)
+        .then((response) => {
+          const rides = response.data.result;
+          dispatch({
+            type: "getAllRides_u",
+            payload: rides,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };
   export const  getAllRidesForRideSectionWithUser = (Id) => {
     return (dispatch) => {
       axios
@@ -171,6 +187,22 @@ export const updateRideStatus = (Id) => {
         });
     };
   };
+  export const  getAllRidesForTrailsSectionWithUser = (Id) => {
+    return (dispatch) => {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/likedRides/getAllRides/${Id}`)
+        .then((response) => {
+          const rides = response.data.result;
+          dispatch({
+            type: "getAllRidesForTrailsSectionWithUser",
+            payload: rides,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };
   export const deleteRide = (Id) => {
       return (dispatch) => {
         axios
@@ -179,6 +211,40 @@ export const updateRideStatus = (Id) => {
             dispatch({
               type: "deleteRide",
               payload: Id,
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      };
+    };
+  export const deleteLike = (user_id,ride_id) => {
+      return (dispatch) => {
+        const data = {
+          user_id,ride_id
+        }
+        axios
+          .delete(`${process.env.REACT_APP_API_URL}/likedRides/delete`,{data})
+          .then((response) => {
+            dispatch({
+              type: "deleteLike",
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+      };
+    };
+    export const addLike = (user_id,ride_id) => {
+      return  (dispatch) => {
+        const data = {
+          user_id,ride_id
+        }
+        axios
+          .post(`${process.env.REACT_APP_API_URL}/likedRides/add`, data)
+          .then((response) => {
+            dispatch({
+              type: "addLike",
             });
           })
           .catch((error) => {
