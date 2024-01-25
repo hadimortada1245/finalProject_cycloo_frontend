@@ -27,11 +27,11 @@ const role=localStorage.getItem('role');
             <Route path="/products" element={ <Products/>} />
             <Route path="/singleProduct/:id" element={ <SingleProduct/>} />
             <Route path="/cart" element={ <Cart/>} />
-            <Route path="/login" element={ !token?<Login/>:<Oops/>} /> 
-            <Route path="/signUp" element={ !token?<SignUp/>:<Oops/>  } /> 
+            <Route path="/login" element={ !token&&<Login/>} /> 
+            <Route path="/signUp" element={ !token&&<SignUp/> } /> 
             <Route path="/trails" element={ <TrailsPage/>} /> 
-            <Route path="/dashboard" element={ (token&& role==="user")?<UserDashboard/>:<Oops/>} /> 
-            <Route path="/admin"  element={(token&& role==="admin")? <AdminDashboard/>: <Oops/>} /> 
+            <Route path="/dashboard" element={ ( role==="user")?<UserDashboard/>:<Oops/>} /> 
+            <Route path="/admin"  element={(role==="admin")? <AdminDashboard/>: <Oops/>} /> 
             <Route path="*" element={ <Oops/>} /> 
           </Routes>
       </Router>

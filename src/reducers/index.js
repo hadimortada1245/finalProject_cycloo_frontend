@@ -13,6 +13,7 @@ import productReducer from "./products";
 import ridesReducer from "./rides";
 import reportsReducer from "./reports";
 import cartReducer from "./cart";
+import ordersReducer from "./orders";
 const allReducers = combineReducers({
   users : userReducer,
   totalUsers: totalUsersReducer,
@@ -27,6 +28,7 @@ const allReducers = combineReducers({
   products: productReducer,
   reports: reportsReducer,
   cart: cartReducer,
+  orders: ordersReducer,
   rides: ridesReducer
 });
 

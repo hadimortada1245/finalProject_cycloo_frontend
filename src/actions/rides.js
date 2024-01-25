@@ -1,23 +1,21 @@
 import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+const uploadImage = async (selectedImage) => {
+  try {
+    const formData = new FormData();
+    formData.append('image', selectedImage);
+    const response = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData);
+    return response.data.data.url;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    throw error; 
+  }
+};
 export const addRide = (title,location,distance,cost,date,time,description,difficuly,selectedImg,selectedImgMap) => {
   return  async(dispatch) => {
-    let imageUrl1;
-    let imageUrl2;
-    const formData1 = new FormData();
-    formData1.append('image', selectedImg);
-    try {
-      const response1 = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData1);
-      imageUrl1 = response1.data.data.url;
-      const formData2=new FormData();
-      formData2.append('image',selectedImgMap);
-      const response2 = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData2);
-      imageUrl2 = response2.data.data.url;
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
+    let imageUrl1=await uploadImage(selectedImg);
+    let imageUrl2=await uploadImage(selectedImgMap);
     const data = {
       img:imageUrl1 ,
       mapImg:imageUrl2,
@@ -51,20 +49,8 @@ export const addRide = (title,location,distance,cost,date,time,description,diffi
 
 export const updateRide = (Id,title,location,distance,cost,date,time,description,difficuly,selectedImg,selectedImgMap,elevation,duration,direction) => {
   return  async(dispatch) => {
-    let imageUrl1;
-    let imageUrl2;
-    const formData1 = new FormData();
-    formData1.append('image', selectedImg);
-    try {
-      const response1 = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData1);
-      imageUrl1 = response1.data.data.url;
-      const formData2=new FormData();
-      formData2.append('image',selectedImgMap);
-      const response2 = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData2);
-      imageUrl2 = response2.data.data.url;
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
+    let imageUrl1 =await uploadImage(selectedImg);
+    let imageUrl2 =await uploadImage(selectedImgMap);
     const data = {
       img:imageUrl1 ,
       mapImg:imageUrl2,

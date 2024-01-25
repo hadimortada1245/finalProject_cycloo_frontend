@@ -22,7 +22,9 @@ function Login(){
           localStorage.setItem('token',token);
           localStorage.setItem('role',role);
           localStorage.setItem('level',level);
-          navigate('/');
+          if(role==="admin")
+          navigate('/admin');
+        else navigate('/');
         } catch (error) {
           setError(error.response.data.message);
         }

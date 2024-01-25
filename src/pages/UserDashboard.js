@@ -11,7 +11,6 @@ function UserDashboard() {
     const handleLogoutAction = () => {
         localStorage.clear();
         navigate('/');
-        
     }
     const [section, setSection] = useState("Overview");
     const [activeItem, setActiveItem] = useState(0);

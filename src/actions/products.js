@@ -66,18 +66,20 @@ export const getProductById = (Id) => {
       });
   };
 };
-export const addProduct = (selectedImage, productName, productCompany, productType, productPrice, productQuantity, productDelivery, productDescription) => {
-  return async (dispatch) => {
-    let imageUrl;
+const uploadImage = async (selectedImage) => {
+  try {
     const formData = new FormData();
     formData.append('image', selectedImage);
-    try {
-      const response = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData);
-      imageUrl = response.data.data.url;
-      // console.log('Image uploaded successfully:', imageUrl);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
+    const response = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData);
+    return response.data.data.url;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    throw error; 
+  }
+};
+export const addProduct = (selectedImage, productName, productCompany, productType, productPrice, productQuantity, productDelivery, productDescription) => {
+  return async (dispatch) => {
+    let imageUrl=await uploadImage(selectedImage)
     const data = {
       img: imageUrl,
       name: productName,
@@ -120,17 +122,7 @@ export const addProduct = (selectedImage, productName, productCompany, productTy
 };
 export const updateProduct = (Id, selectedImage, productName, productCompany, productType, productPrice, productQuantity, productDelivery, productDescription) => {
   return async (dispatch) => {
-    console.log(Id, selectedImage, productName, productCompany, productType, productPrice, productQuantity, productDelivery, productDescription)
-    let imageUrl;
-    const formData = new FormData();
-    formData.append('image', selectedImage);
-    try {
-      const response = await axios.post('https://api.imgbb.com/1/upload?key=91d27c7f35f4cd3885f4ada2ac3d2c1c', formData);
-      imageUrl = response.data.data.url;
-      console.log('Image uploaded successfully:', imageUrl);
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
+    let imageUrl=await uploadImage(selectedImage);
     const data = {
       img: imageUrl,
       name: productName,
@@ -168,6 +160,7 @@ export const updateProduct = (Id, selectedImage, productName, productCompany, pr
       });
   };
 };
+
 export const deleteProduct = (Id) => {
   return (dispatch) => {
     axios

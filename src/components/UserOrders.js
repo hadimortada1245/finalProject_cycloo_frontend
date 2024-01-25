@@ -1,6 +1,22 @@
 import '../styles/userOrders.css';
-import detailsIcon from '../images/icons8-view-30.png'
+import {getOrdersByUserId} from '../actions/orders';
+import { useSelector,useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 function UserOrders(){
+    const dispatch=useDispatch();
+    const id =localStorage.getItem('id');
+    const orders = useSelector((state) => state.orders);
+    useEffect(()=>{
+        dispatch(getOrdersByUserId(id))
+    },[dispatch,id]);
+    const validDate = (d) => {
+        const dateObject = new Date(d);
+        if (isNaN(dateObject.getTime())) {
+            return "";
+        }
+
+        return dateObject.toISOString().split('T')[0];
+    };
     return(
         <>
         <table className='order-table1'>
@@ -12,55 +28,25 @@ function UserOrders(){
                     <th className='order-th'>Total</th>
                     <th className='order-th'>Status</th>
                     <th className='order-th'>Delivery</th>
-                    <th className='order-th'>Details</th>
+            
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td className='td-user-d' data-cell="No">1</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="Quantity">1</td>
-                <td className='td-user-d' data-cell="Total">150$</td>
-                <td className='td-user-d' data-cell="Status">Pending</td>
-                <td className='td-user-d' data-cell="Delivery">5$</td>
-                <td className='td-user-d' data-cell="Details"><img src={detailsIcon} alt='detailsIcon' className='detailsIcon'/></td>
+                {
+                    orders && orders.map((order,index)=>(
+
+                <tr key={index}>
+                <td className='td-user-d' data-cell="No">{order.id}</td>
+                <td className='td-user-d' data-cell="Date">{validDate(order.createdAt)}</td>
+                <td className='td-user-d' data-cell="Quantity">{order.quantity}</td>
+                <td className='td-user-d' data-cell="Total">{order.total}$</td>
+                <td className='td-user-d' data-cell="Status">{order.status===0?'Pending':"Completed"}</td>
+                <td className='td-user-d' data-cell="Delivery">{order.delivery}$</td>
+                
                 </tr>
-                <tr>
-                <td className='td-user-d' data-cell="No">1</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="Quantity">1</td>
-                <td className='td-user-d' data-cell="Total">150$</td>
-                <td className='td-user-d' data-cell="Status">Pending</td>
-                <td className='td-user-d' data-cell="Delivery">5$</td>
-                <td className='td-user-d' data-cell="Details"><img src={detailsIcon} alt='detailsIcon' className='detailsIcon'/></td>
-                </tr>
-                <tr>
-                <td className='td-user-d' data-cell="No">1</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="Quantity">1</td>
-                <td className='td-user-d' data-cell="Total">150$</td>
-                <td className='td-user-d' data-cell="Status">Pending</td>
-                <td className='td-user-d' data-cell="Delivery">5$</td>
-                <td className='td-user-d' data-cell="Details"><img src={detailsIcon} alt='detailsIcon' className='detailsIcon'/></td>
-                </tr>
-                <tr>
-                <td className='td-user-d' data-cell="No">1</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="Quantity">1</td>
-                <td className='td-user-d' data-cell="Total">150$</td>
-                <td className='td-user-d' data-cell="Status">Pending</td>
-                <td className='td-user-d' data-cell="Delivery">5$</td>
-                <td className='td-user-d' data-cell="Details"><img src={detailsIcon} alt='detailsIcon' className='detailsIcon'/></td>
-                </tr>
-                <tr>
-                <td className='td-user-d' data-cell="No">1</td>
-                <td className='td-user-d' data-cell="Date">11/02/2024</td>
-                <td className='td-user-d' data-cell="Quantity">1</td>
-                <td className='td-user-d' data-cell="Total">150$</td>
-                <td className='td-user-d' data-cell="Status">Pending</td>
-                <td className='td-user-d' data-cell="Delivery">5$</td>
-                <td className='td-user-d' data-cell="Details"><img src={detailsIcon} alt='detailsIcon' className='detailsIcon'/></td>
-                </tr>
+                    ))
+                }
+                
             </tbody>
         </table>
         </>

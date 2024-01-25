@@ -6,7 +6,8 @@
 .cart-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    height: 900px;
+    overflow-x:scroll ;
     flex-direction: column;
     margin: 3% 0%;
 }

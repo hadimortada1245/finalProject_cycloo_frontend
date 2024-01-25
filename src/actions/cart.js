@@ -1,13 +1,28 @@
 import axios from "axios";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+export const addToCart = (userId,maxQuantity,delivery,productId,price,img,name) => {
+  const data={
+    userId,quantity:1,maxQuantity,delivery,productId,price,img,name
+  }
+    return (dispatch) => {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/cart/add`,data)
+        .then((response) => {
+          dispatch({
+            type: "addToCart",
+             payload: data,
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+  };
 export const getCartData = (Id) => {
     return (dispatch) => {
       axios
         .get(`${process.env.REACT_APP_API_URL}/cart/getCartDataByUserId/${Id}`)
         .then((response) => {
           const cartItems=response.data.cartItems;
-          console.log(response);
           dispatch({
             type: "getCartData",
             payload: cartItems,
@@ -24,7 +39,6 @@ export const removeFromCart = (userId,productId) => {
       axios
         .delete(`${process.env.REACT_APP_API_URL}/cart/remove`,{data})
         .then((response) => {
-          console.log(response)
           dispatch({
             type: "removeFromCart",
             payload: {userId,productId},
@@ -35,18 +49,14 @@ export const removeFromCart = (userId,productId) => {
         });
     };
   };
-export const acceptJoinRequest = (user_id,ride_id,Id) => {
+export const decrease = (userId,productId) => {
     return (dispatch) => {
-      const data={user_id,ride_id}
+      const data={userId,productId}
       axios
-        .put(`${process.env.REACT_APP_API_URL}/ridesJoining/update`,data)
+        .put(`${process.env.REACT_APP_API_URL}/cart/decrease`,data)
         .then((response) => {
           dispatch({
-            type: "acceptJoinRequest",
-            payload: Id,
-          });
-          dispatch({
-            type: "reduceTotal"
+            type: "decrease",
           });
         })
         .catch((error) => {
@@ -54,43 +64,18 @@ export const acceptJoinRequest = (user_id,ride_id,Id) => {
         });
     };
   };
-export const addJoin = (user_id,ride_id,approved) => {
+export const increase = (userId,productId) => {
     return (dispatch) => {
-      const data={user_id,ride_id,approved}
-      console.log(data);
+      const data={userId,productId}
       axios
-        .post(`${process.env.REACT_APP_API_URL}/ridesJoining/add`,data)
+        .put(`${process.env.REACT_APP_API_URL}/cart/increase`,data)
         .then((response) => {
-          if(approved===0)
-          toast.success('Request sent successfully!', {
-            position: "top-center",
-            position: "top-center",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-          else 
-          toast.success('You joined the ride successfully!', {
-            position: "top-center",
-            position: "top-center",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
           dispatch({
-        type: "addJoin",
-      });
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
+            type: "increase",
+          });
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
         });
     };
   };

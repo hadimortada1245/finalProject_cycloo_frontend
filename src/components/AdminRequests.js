@@ -25,7 +25,6 @@ function AdminRequests() {
     useEffect(() => {
         dispatch(getRidesRequestsData());
     }, [dispatch])
-    console.log(ridesRequests);
     const validDate = (d) => {
         const dateObject = new Date(d);
         if (isNaN(dateObject.getTime())) {
