@@ -10,7 +10,7 @@ button{
     cursor: pointer;
 }
 .header {
-    background-image: url(C:\Users\pc\OneDrive\Desktop\cycloo\frontend\cycloo\src\images\heroSection.jpg);
+    background-image: url('../images/heroSection.jpg');
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
