@@ -1,5 +1,5 @@
 .contact-container{
-    background-image: url(C:\Users\pc\OneDrive\Desktop\cycloo\frontend\cycloo\src\images\photo.png);
+    background-image: url('../images/photo.png');
     background-size: cover;
     background-position: center; 
     background-repeat: no-repeat;
