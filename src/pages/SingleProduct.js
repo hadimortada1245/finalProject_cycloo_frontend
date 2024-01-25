@@ -14,9 +14,17 @@ function SingleProduct(){
     const products = useSelector((state) => state.products);
     useEffect(() => {
         dispatch(getProductById(id));
-    }, [dispatch])
-    const handleAddToCart=()=>{
-        if(!token)navigate('/login')
+    }, [dispatch,id])
+    const handleAddToCart=(product)=>{
+        if(!token){navigate('/login');return;}
+        const productData={
+            id:product.id,
+            name:product.company,
+            Quantity:1,
+            maxQuantity:product.quantity,
+            img:product.img
+        };
+        localStorage.setItem('products',[productData]);
     }
     return(
         <div className='single-product-c'>
@@ -29,7 +37,7 @@ function SingleProduct(){
                     <p className='product-description'>{products[0].description}</p>
                     <div className='product-price'>
                         <p className='single-price'>${products[0].price}</p>
-                        <button className='single-button' onClick={handleAddToCart}>Add to cart</button>
+                        <button className='single-button' onClick={()=>handleAddToCart(products[0])}>Add to cart</button>
                     </div>
                 </div>
                 <img  className='single-product-img' src={products[0].img} alt ='single-product'/>

@@ -37,7 +37,6 @@ function Products() {
             payload: filteredProducts,
         });
     };
-    console.log(products);
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             handleSearch();

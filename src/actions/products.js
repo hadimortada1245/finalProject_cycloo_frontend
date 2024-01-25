@@ -56,7 +56,6 @@ export const getProductById = (Id) => {
       .get(`${process.env.REACT_APP_API_URL}/products/getProductById/${Id}`)
       .then((response) => {
         const products = response.data.result;
-        console.log(products);
         dispatch({
           type: "getProductById",
           payload: products,

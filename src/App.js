@@ -14,7 +14,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
-
+const token=localStorage.getItem('token');
+const role=localStorage.getItem('role');
     return (
       <div>
       <ToastContainer/> 
@@ -26,11 +27,11 @@ function App() {
             <Route path="/products" element={ <Products/>} />
             <Route path="/singleProduct/:id" element={ <SingleProduct/>} />
             <Route path="/cart" element={ <Cart/>} />
-            <Route path="/login" element={ <Login/>} /> 
-            <Route path="/signUp" element={ <SignUp/>} /> 
+            <Route path="/login" element={ !token?<Login/>:<Oops/>} /> 
+            <Route path="/signUp" element={ !token?<SignUp/>:<Oops/>  } /> 
             <Route path="/trails" element={ <TrailsPage/>} /> 
-            <Route path="/dashboard" element={ <UserDashboard/>} /> 
-            <Route path="/admin" element={ <AdminDashboard/>} /> 
+            <Route path="/dashboard" element={ (token&& role==="user")?<UserDashboard/>:<Oops/>} /> 
+            <Route path="/admin"  element={(token&& role==="admin")? <AdminDashboard/>: <Oops/>} /> 
             <Route path="*" element={ <Oops/>} /> 
           </Routes>
       </Router>
