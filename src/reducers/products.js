@@ -8,6 +8,8 @@ const productReducer = (state = [], action) => {
         return action.payload;
       case "getProductsBySearch":
         return action.payload;
+      case "getProductById":
+        return action.payload;
       case "addProduct":
         return [...state, action.payload];
       case "deleteProduct":

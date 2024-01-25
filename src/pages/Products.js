@@ -5,11 +5,12 @@ import searchIcon from '../images/icons8-search-50.png';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getAllProducts, getProductsByType } from '../actions/products';
-import { useEffect,useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 function Products() {
-   const  searchTerm= useRef(null);
+    const searchTerm = useRef(null);
     const dispatch = useDispatch();
-    
+
     const products = useSelector((state) => state.products);
     useEffect(() => {
         dispatch(getAllProducts());
@@ -25,23 +26,23 @@ function Products() {
             dispatch(getProductsByType("Accessories"));
     }
     const handleSearch = () => {
-        if(!searchTerm.current.value)return;
+        if (!searchTerm.current.value) return;
         const filteredProducts = products.filter(
-          (product) =>
-            product.name.toLowerCase().includes(searchTerm.current.value.toLowerCase()) ||
-            product.company.toLowerCase().includes(searchTerm.current.value.toLowerCase())
+            (product) =>
+                product.name.toLowerCase().includes(searchTerm.current.value.toLowerCase()) ||
+                product.company.toLowerCase().includes(searchTerm.current.value.toLowerCase())
         );
         dispatch({
-          type: 'getProductsBySearch',
-          payload: filteredProducts,
+            type: 'getProductsBySearch',
+            payload: filteredProducts,
         });
-      };
+    };
     console.log(products);
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
-          handleSearch();
+            handleSearch();
         }
-      };
+    };
     return (
         <div className='porducts-p-c'>
             <MainNav />
@@ -54,21 +55,23 @@ function Products() {
                         <option className='filterBy-option' value={`Acessories`}>Acessories</option>
                     </select>
                     <div className='search-div'>
-                        <input className='search-input' type='text' placeholder='Search' onKeyPress={handleKeyPress} ref={searchTerm}/>
-                        <img src={searchIcon} className='searchIcon' alt='searchIcon' onClick={()=>handleSearch()} />
+                        <input className='search-input' type='text' placeholder='Search' onKeyPress={handleKeyPress} ref={searchTerm} />
+                        <img src={searchIcon} className='searchIcon' alt='searchIcon' onClick={() => handleSearch()} />
                     </div>
                 </div>
                 <div className='products-container-p'>
                     {products && products.map((product, index) => (
 
-                        <div className='single-item single' key={index}>
-                            <img className='home-img-item' src={product.img} alt='item' />
-                            <p className='item-p'>{product.company}</p>
-                            <div className='item-t-p'>
-                                <p>{product.name}</p>
-                                <p>{product.price}$</p>
+                        <Link to={`/singleProduct/${product.id}`} key={index}>
+                            <div className='single-item single' key={index}>
+                                <img className='home-img-item' src={product.img} alt='item' />
+                                <p className='item-p'>{product.company}</p>
+                                <div className='item-t-p'>
+                                    <p>{product.name}</p>
+                                    <p>{product.price}$</p>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
 
                 </div>
