@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 const token=localStorage.getItem('token');
 const role=localStorage.getItem('role');
+console.log(token,role);
     return (
       <div>
       <ToastContainer/> 
