@@ -133,7 +133,8 @@
         border-radius: 6px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         width: 40%;
-        height: fit-content;
+        height: 600px;
+        overflow: scroll;
         display: flex;
         flex-direction: column;
         row-gap: 10px;
@@ -199,7 +200,8 @@
         margin-bottom: 10px;
     }
     .update-product-img{
-        width: 20%
+        width: 150px;
+        height: 150px;
 
     }
     .add-product-cancel-btn{
@@ -286,16 +288,23 @@
         gap:3px;
     }
     @media screen and (min-width:767px) and (max-width:1024px) {
+        .trail-map {
+            width: 200px;
+        }
         .add-product-popup-content {
             width: 60%;
         }
         .delete-popup-confirm-btn{
-            width: 20%;
+            width: 30%;
     font-size: 28px;
         }
         .delete-popup-cancel-btn{
-            width: 20%;
+            width: 30%;
     font-size: 28px;
+        }
+        .report-popup-content {
+            width: 60%;
+            gap: 25px;
         }
         .delete-popup-content {
             width: 70%;
@@ -312,6 +321,40 @@
     }
     
     @media screen and (max-width:766px){
+        .update-ride-popup-content-inputs-l-i {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 85%;
+        }
+        .file-label {
+            color: #fff;
+            background-color: #234257;
+            font-size: 16px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            width: 35%;
+            cursor: pointer;
+        }
+        .update-ride-popup-content {
+            background: white;
+            padding: 1.5% 1.5% 0.2% 1.5%;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 85%;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            justify-content: flex-start;
+            overflow: scroll;
+        }
+        .report-popup-content {
+            width: 80%;
+        }
         .add-product-submit-btn {
             width: 25% !important;
             height: 30px !important;
@@ -337,7 +380,8 @@
             flex-direction: column;
         }
         .add-product-popup-content {
-            width: 75%;
+            width: 80%;
+            gap: 15px;
         }
         .delete-popup-t {
             font-size: 1.250rem;
